@@ -41,7 +41,89 @@
                 </div>
             </div>
         </div>
+
+
     </div>
+    <section class="container mx-auto">
+        <div class="grid grid-cols-1">
+            <div class="py-8">
+                <h1 class="text-center text-4xl pb-4">获取属于你的 OpenAI API 密钥</h1>
+                <span class="block text-center text-2xl text-blue-600"><a href="https://faka.mianshijun.com">点击这里</a></span>
+            </div>
+
+
+            <div class="grid grid-cols-3 gap-4 my-16">
+                <div class="col-span-3">
+                    <h2 class="text-red-600 text-center text-2xl font-bold">特色服务</h2>
+                </div>
+                <div class="border rounded-md shadow-md p-4">
+                    <a href="https://apps.apple.com/app/opencat/id6445999201" class="block">
+                       <span class="flex text-xl font-bold">
+                           <img class="h-6 w-6 rounded-lg bg-gray-50" src="https://is4-ssl.mzstatic.com/image/thumb/Purple126/v4/f7/09/07/f70907cf-9fce-1844-8402-0d56e904c97a/AppIcon-85-220-4-2x.png/460x0w.webp" alt="">
+                        openchat
+                       </span>
+                        <span class="text-sm text-gray-400">
+                            penCat 是一个 OpenAI 和 ChatGPT 的原生客户端，提供比 Web 界面更流畅和更快速的聊天体验。支持 MacOS 和 iOS。
+                        </span>
+                    </a>
+                </div>
+                <div class="border rounded-md shadow-md p-4">
+                    <a href="https://apps.apple.com/app/opencat/id6445999201" class="block">
+                       <span class="flex text-xl font-bold">
+<img class="h-6 w-6 rounded-lg bg-gray-50" src="https://translator.lance.moe/favicon.png" alt="">
+                           OpenAI 翻译器
+                       </span>
+                        <span class="text-sm text-gray-400">
+                            PWA 应用，可以在手机上使用的翻译工具。
+                        </span>
+                    </a>
+                </div>                <div class="border rounded-md shadow-md p-4">
+                    <a href="https://apps.apple.com/app/opencat/id6445999201" class="block">
+                       <span class="flex text-xl font-bold">
+                      <img class="h-6 w-6 rounded-lg bg-gray-50" src="https://uploads-ssl.webflow.com/6402901a2a9eeaba148db81e/6402b710ab0458272618ac6a_Group%2037.png" alt="">
+                           Zeeno
+                       </span>
+                        <span class="text-sm text-gray-400">
+Zeeno 是一款生活在手机键盘中的 AI 助手。你可以在不离开手机聊天窗口的情况下重新表述推文、为下一顿家庭晚餐提供烹饪方案、生成对长邮件的回复等等。
+                        </span>
+                    </a>
+                </div>                <div class="border rounded-md shadow-md p-4">
+                    <a href="https://apps.apple.com/app/opencat/id6445999201" class="block">
+                       <span class="flex text-xl font-bold">
+                         <img class="h-6 w-6 rounded-lg bg-gray-50" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="">
+                           ChatGPT 微信
+                       </span>
+                        <span class="text-sm text-gray-400">
+                            基于ChatGPT的微信聊天机器人，通过 ChatGPT 接口生成对话内容，使用 itchat 实现微信消息的接收和自动回复。支持文本对话、规则定制化、多账号、图片生成、上下文记忆。
+                        </span>
+                    </a>
+                </div>
+                <div class="border rounded-md shadow-md p-4">
+                    <a href="https://apps.apple.com/app/opencat/id6445999201" class="block">
+                       <span class="flex text-xl font-bold">
+                           <img class="h-6 w-6 rounded-lg bg-gray-50" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="">
+                           xiaogpt
+                       </span>
+                        <span class="text-sm text-gray-400">
+                           将小米的小爱同学和 ChatGPT 结合起来，实现了一个小爱同学的聊天机器人。
+                        </span>
+                    </a>
+                </div>
+                <div class="border rounded-md shadow-md p-4">
+                    <a href="https://apps.apple.com/app/opencat/id6445999201" class="block">
+                       <span class="flex text-xl font-bold">
+                           <img class="h-6 w-6 rounded-lg bg-gray-50" src="https://fsys.app/favicon.ico" alt="">
+                           风声雨声翻译
+                       </span>
+                        <span class="text-sm text-gray-400">
+                            基于 gpt-3.5 的中英对照书籍翻译服务，高质量翻译，全本中英对照，企业级稳定翻译，全网原版书资源。
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
     <footer class="text-center sm:text-left">
         <div class="p-4 text-center text-neutral-700">
             GeekChat 由

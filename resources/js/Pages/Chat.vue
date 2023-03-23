@@ -102,7 +102,7 @@ const regenerate = () => {
 </script>
 
 <template>
-    <Head title="GeekChat - 支持文字、语音、翻译、画图的聊天机器人"></Head>
+    <Head title="Chat - 支持文字、语音、翻译、画图的聊天机器人"></Head>
     <div>
         <div class="max-w-5xl mx-auto">
             <div class="py-8">
