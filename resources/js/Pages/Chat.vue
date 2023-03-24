@@ -111,7 +111,7 @@ const regenerate = () => {
                         <div class="flex items-center justify-center space-x-2"><img
                                 src="https://image.gstatics.cn/icon/geekchat.png" alt="GeekChat"
                                 class="rounded-lg w-12 h-12">
-                            <div class="font-semibold text-4xl sm:text-5xl">Geek<span class="text-blue-500">Chat</span>
+                            <div class="font-semibold text-4xl sm:text-5xl">AI<span class="text-blue-500">Chat</span>
                             </div>
                         </div>
                         <div class="text-center my-4 font-light text-base sm:text-xl my-2 sm:my-5">支持文字、语音、翻译、画图的聊天机器人
@@ -206,13 +206,13 @@ const regenerate = () => {
                 <hr>
                 <div class="p-4 bg-white px-4">
                     <div class="pb-safe">
-                        <form class="grid grid-cols-1 gap-2 md:flex md:items-start md:justify-center md:space-x-2 mb-2"
+                        <form class="grid grid-cols-1 gap-2  mb-2"
                             @submit.prevent="chat">
-                            <textarea required id="chat-input-textbox" placeholder="输入你的问题/翻译内容/图片描述..." name="prompt"
+                            <textarea  required id="chat-input-textbox" cols="" placeholder="输入你的问题/翻译内容/图片描述..." name="prompt"
                                 autocomplete="off" v-model="form.prompt"
                                 :style="{ height: (form.prompt && form.prompt.split('\n').length > 1) ? form.prompt.split('\n').length * 2 + 'rem' : '40px' }"
                                 class="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:py-1.5 sm:text-sm sm:leading-6 resize-none"></textarea>
-                            <div class="flex space-x-2">
+                            <div class="flex space-x-2 justify-end">
                                 <button
                                     :class="{ 'flex items-center justify-center px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-md text-sm md:text-base': true, 'opacity-25': isTyping }"
                                     title="发送消息" type="submit" :disabled="isTyping">
