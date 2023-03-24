@@ -16,6 +16,8 @@
     @routes
     @vite(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue"])
     @inertiaHead
+    <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
+
 </head>
 @include('analytics')
 <body class="font-sans antialiased">
@@ -64,18 +66,14 @@
         </div>
     </div>
 <div>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4193846562907716"
-            crossorigin="anonymous"></script>
-    <!-- chat-web -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-4193846562907716"
-         data-ad-slot="8753144254"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+    <amp-ad width="100vw" height="320"
+            type="adsense"
+            data-ad-client="ca-pub-4193846562907716"
+            data-ad-slot="8753144254"
+            data-auto-format="rspv"
+            data-full-width="">
+        <div overflow=""></div>
+    </amp-ad>
 </div>
     <div class="hidden md:block w-1/2 py-8 mx-auto">
         <h1 class="text-center text-4xl font-bold">感谢赞助</h1>
