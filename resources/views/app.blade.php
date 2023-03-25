@@ -16,16 +16,8 @@
     @routes
     @vite(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue"])
     @inertiaHead
-    <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MC8EE0SDSQ"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+    @include('analytics')
 
-        gtag('config', 'G-MC8EE0SDSQ');
-    </script>
 </head>
 
 <body class="font-sans antialiased">
@@ -73,16 +65,8 @@
             </div>
         </div>
     </div>
-<div>
-    <amp-ad width="100vw" height="320"
-            type="adsense"
-            data-ad-client="ca-pub-4193846562907716"
-            data-ad-slot="8753144254"
-            data-auto-format="rspv"
-            data-full-width="">
-        <div overflow=""></div>
-    </amp-ad>
-</div>
+    <div>
+    </div>
     <div class="hidden md:block w-1/2 py-8 mx-auto">
         <h1 class="text-center text-4xl font-bold">感谢赞助</h1>
         <span class="block text-sm text-center text-gray-400">生活不易，感谢支持</span>
