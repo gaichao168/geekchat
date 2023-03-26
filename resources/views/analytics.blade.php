@@ -13,8 +13,9 @@
     var _hmt = _hmt || [];
     (function() {
         var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?88dae9e19baae9bc4bbf3431321e22c1";
+        hm.src = "https://hm.baidu.com/hm.js?de40d2f187917816ccde07a8c5206edf";
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
     })();
 </script>
+
