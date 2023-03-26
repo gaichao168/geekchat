@@ -24,16 +24,16 @@
 @inertia
 <section class="container mx-auto">
     <div class="grid grid-cols-1">
-        <div class="py-8">
-            <h1 class="text-center md:text-4xl text-2xl px-4">获取属于你的 OpenAI API 密钥</h1>
+{{--        <div class="py-8">--}}
+{{--            <h1 class="text-center md:text-4xl text-2xl px-4">获取属于你的 OpenAI API 密钥</h1>--}}
 
-            <h3 class="text-center text-gray-400 pb-4 ">独立通道，数据安全</h3>
+{{--            <h3 class="text-center text-gray-400 pb-4 ">独立通道，数据安全</h3>--}}
 
-            <span class="block text-center text-2xl my-2">
-                <a class="bg-blue-400 rounded-md  text-white px-4 py-2 hover:bg-blue-800"
-                   href="https://faka.mianshijun.com" target="_blank">点击这里</a>
-            </span>
-        </div>
+{{--            <span class="block text-center text-2xl my-2">--}}
+{{--                <a class="bg-blue-400 rounded-md  text-white px-4 py-2 hover:bg-blue-800"--}}
+{{--                   href="https://faka.mianshijun.com" target="_blank">点击这里</a>--}}
+{{--            </span>--}}
+{{--        </div>--}}
 
     </div>
     <div class="py-8">
