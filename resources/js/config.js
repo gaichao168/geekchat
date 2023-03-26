@@ -5,7 +5,7 @@ var base_url = '';
 
 switch (process.env.NODE_ENV) {
     case 'development':
-        base_url = 'https://chat.wobcw.com';
+        base_url = 'https://chat.test';
         break;
     case 'production':
         base_url = 'https://chat.wobcw.com';

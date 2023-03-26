@@ -114,7 +114,7 @@ const regenerate = () => {
                             <div class="font-semibold text-4xl sm:text-5xl">AI<span class="text-blue-500">Chat</span>
                             </div>
                         </div>
-                        <div class="text-center my-4 font-light text-base sm:text-xl my-2 sm:my-5">支持文字、语音、翻译、画图的聊天机器人
+                        <div class="text-center my-4 font-light text-base sm:text-xl my-2 sm:my-5">支持文字、翻译、画图的聊天机器人
                         </div>
                         <div>
                             <div class="text-sm text-center">
@@ -222,7 +222,7 @@ const regenerate = () => {
                                             d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
                                     </svg>
                                 </button>
-                                <audio-widget @audio-upload="audio" @audio-failed="audioFailed" :is-typing="isTyping" />
+<!--                                <audio-widget @audio-upload="audio" @audio-failed="audioFailed" :is-typing="isTyping" />-->
                                 <button
                                     :class="{ 'flex items-center justify-center px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-md text-sm md:text-base': true, 'opacity-25': isTyping }"
                                     @click="translate" title="中英互译" type="button" :disabled="isTyping">
