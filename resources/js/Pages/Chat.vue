@@ -136,6 +136,7 @@ const regenerate = () => {
                                         </svg>
                                         <span>输入 API Key（可选）</span>
                                     </button>
+                                    <span class="block pt-4 text-gray-600">私人API Key无限制</span>
                                 </div>
                             </div>
                         </div>
@@ -261,6 +262,21 @@ const regenerate = () => {
             </div>
         </div>
         <section class="container mx-auto">
+            <div class="text-center my-4 font-bold sm:text-3xl my-2 sm:my-5 text-red-600">
+                坚持不易，请勿浪费！
+            </div>
+            <div class="hidden md:block w-1/2 py-8 mx-auto">
+                <h1 class="text-center text-4xl font-bold">感谢赞助</h1>
+                <span class="block text-sm text-center text-gray-400">生活不易，感谢支持</span>
+                <div class="flex space-x-2 mt-4 justify-center items-center">
+                    <div class="w-48 h-48 border rounded-md shadow-md overflow-hidden">
+                        <img src="images/wechat_pay_code.png" alt="">
+                    </div>
+                    <div class="w-48  h-48 border rounded-md shadow-md overflow-hidden">
+                        <img src="images/alipay_code.png" alt="">
+                    </div>
+                </div>
+            </div>
 <!--            <div class="grid grid-cols-1">-->
 <!--                <div class="py-8">-->
 <!--                    <h1 class="text-center md:text-4xl text-2xl px-4">获取属于你的 OpenAI API 密钥</h1>-->
@@ -305,18 +321,7 @@ const regenerate = () => {
             </div>
             <div>
             </div>
-            <div class="hidden md:block w-1/2 py-8 mx-auto">
-                <h1 class="text-center text-4xl font-bold">感谢赞助</h1>
-                <span class="block text-sm text-center text-gray-400">生活不易，感谢支持</span>
-                <div class="flex space-x-2 mt-4 justify-center items-center">
-                    <div class="w-48 h-48 border rounded-md shadow-md overflow-hidden">
-                        <img src="images/wechat_pay_code.png" alt="">
-                    </div>
-                    <div class="w-48  h-48 border rounded-md shadow-md overflow-hidden">
-                        <img src="images/alipay_code.png" alt="">
-                    </div>
-                </div>
-            </div>
+
             <div class="grid md:grid-cols-4 grid-cols-2 gap-4 my-16">
                 <div class=" md:col-span-4 col-span-2">
                     <h2 class="text-red-600 text-center text-2xl font-bold">特色服务</h2>
