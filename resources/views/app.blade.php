@@ -6,11 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="https://image.gstatics.cn/icon/geekchat.png">
 
-    <title inertia>{{ config('app.name', 'Laravel') }}</title>
-
+    <title inertia>我的编程-@yield('title','首页')</title>
+<meta name="keyword" content="@yield('keyword','AIChat, 聊天机器人, 智能交互')">
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet"/>
 
     <!-- Scripts -->
     @routes
@@ -30,6 +28,7 @@
         </div>
         <nav class="flex space-x-4 justify-start items-center">
             <a href="/" class="dark:text-white text-black py-3 px-4 hover:text-teal-500 hover:bg-gray-500">首页</a>
+            <a href="/shares" title="知识科普" class="dark:text-white text-black py-3 px-4 hover:text-teal-500 hover:bg-gray-500">知识科普</a>
             <a href="/" class="dark:text-white text-black py-3 px-4 hover:text-teal-500 hover:bg-gray-500">联系我们</a>
         </nav>
         @if (Route::has('login'))
@@ -85,7 +84,6 @@
 </div>
 
 @inertia
-
 <footer class="text-center sm:text-left">
     <div class="p-4 text-center text-neutral-700">
         AIChat 由

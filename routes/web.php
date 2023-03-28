@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ShareController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,7 +26,10 @@ Route::post('/audio', ChatController::class . '@audio')->name('audio')->middlewa
 Route::post('/image', ChatController::class . '@image')->name('image')->middleware('throttle:imgae');
 Route::get('/reset', ChatController::class . '@reset')->name('reset');
 
-
+Route::group(['prefix'=>'shares'],function (){
+   Route::get('/',[ShareController::class,'index'])->name('shares');
+   Route::get('/{share}',[ShareController::class,'show'])->name('shares.show');
+});
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
