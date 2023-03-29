@@ -15,10 +15,18 @@ const isTyping = computed(() => store.state.isTyping)
 const apiKey = computed(() => store.state.apiKey ? '*'.repeat(4) + store.state.apiKey.substr(length - 4, 4) : '')
 const lastMessage = computed(() => store.state.lastMessage)
 const lastAction = computed(() => store.state.lastAction)
+const totalUsed = computed(() => store.state.totalUsed)
+const totalGranted = computed(() => store.state.totalGranted)
+const totalAvailable = computed(() => store.state.totalAvailable)
+const isAmount = computed(() => store.state.isAmount)
 
 const form = useForm({
     prompt: null
 })
+
+const amount = useForm({
+    amountKye: null
+});
 
 const chat = () => {
     if (isTyping.value) {
@@ -76,6 +84,13 @@ const enterApiKey = () => {
     store.dispatch('validAndSetApiKey', api_key)
 }
 
+const getAmount = () => {
+
+    if (isTyping.value) {
+        return;
+    }
+    store.dispatch('getAmount', amount.amountKye)
+}
 const regenerate = () => {
     if (!lastMessage.value || !lastAction.value) {
         return
@@ -278,6 +293,36 @@ const regenerate = () => {
                     </span>
                 </div>
             </div>
+
+            <div class="grid grid-cols-1">
+                <div class="py-8">
+                    <h3 class="text-center pb-4 ">余额查询</h3>
+                    <h1 class="text-center md:text-4xl text-2xl px-4">输入 API Key 查询使用额度</h1>
+
+                    <form @submit.prevent="getAmount" class="flex space-x-2 items-center justify-center mt-4 pb-4 ">
+                        <input type="text" name="amountKey" v-model="amount.amountKye" required
+                               class="border rounded-md w-1/2" placeholder="请输入你的API Key">
+                        <button class="block bg-blue-500 rounded-md py-2 px-4 hover:bg-blue-800 hover:text-white"
+                                title="查询余额" type="submit" :disabled="isTyping">查询
+                        </button>
+                    </form>
+
+                    <div class="pt-2 px-2 border w-1/2 mx-auto rounded-md bg-gray-100" v-show="isAmount">
+
+                            <div class="flex justify-start py-1">总额：<span
+                                class="text-gray-600 px-2">${{ totalAvailable }}</span>
+                            </div>
+                            <div class="flex justify-start py-1">已用：<span
+                                class="text-gray-600 px-2">${{ totalUsed }}</span>
+                            </div>
+                            <div class=" flex justify-start py-1">剩余：<span
+                                class="text-gray-600 px-2">${{ totalGranted }}</span>
+                            </div>
+
+
+                    </div>
+                </div>
+            </div>
             <div class="hidden md:block w-1/2 py-8 mx-auto">
                 <h1 class="text-center text-4xl font-bold">感谢赞助</h1>
                 <span class="block text-sm text-center text-gray-400">坚持不易，感谢支持</span>
@@ -399,7 +444,8 @@ Zeeno 是一款生活在手机键盘中的 AI 助手。你可以在不离开手�
                     </a>
                 </div>
                 <div class="border rounded-md shadow-md p-4">
-                    <a href="https://adorable-antimony-856.notion.site/ChatGPT-8ce48bcb5aa94828a64c86a2dbfc307d" target="_blank" class="block">
+                    <a href="https://adorable-antimony-856.notion.site/ChatGPT-8ce48bcb5aa94828a64c86a2dbfc307d"
+                       target="_blank" class="block">
                        <span class="flex text-xl font-bold">
                            <img class="h-6 w-6 rounded-lg bg-gray-50" src="https://www.notion.so/images/favicon.ico"
                                 alt="">

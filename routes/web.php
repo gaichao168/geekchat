@@ -22,6 +22,7 @@ Route::post('/chat', ChatController::class . '@chat')->name('chat')->middleware(
 Route::post('/translate', ChatController::class . '@translate')->name('translate')->middleware('throttle:chat');
 Route::get('/stream', ChatController::class . '@stream')->name('stream');
 Route::post('/valid', ChatController::class . '@valid')->name('valid');
+Route::post('/amount', ChatController::class . '@amount')->name('amount');
 Route::post('/audio', ChatController::class . '@audio')->name('audio')->middleware('throttle:audio');
 Route::post('/image', ChatController::class . '@image')->name('image')->middleware('throttle:imgae');
 Route::get('/reset', ChatController::class . '@reset')->name('reset');

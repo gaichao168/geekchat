@@ -57,4 +57,11 @@ export default {
     clearMessages: () => {
         return axios.get(CHAT_CONFIG.BASE_URL + '/reset')
     },
+
+    getAmount:(api_key)=>{
+        const formData = new FormData();
+        formData.append('api_key', api_key);
+        return axios.post(CHAT_CONFIG.BASE_URL + '/amount', formData, { responseType: 'json' })
+    },
+
 }

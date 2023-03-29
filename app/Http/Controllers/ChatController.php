@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Facades\OpenAI;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Artisan;
@@ -25,7 +26,7 @@ class ChatController extends Controller
 
     public function messages(): JsonResponse
     {
-        $messages = collect(session('messages', []))->reject(fn ($message) => $message['role'] === 'system')->toArray();
+        $messages = collect(session('messages', []))->reject(fn($message) => $message['role'] === 'system')->toArray();
         return response()->json(array_values($messages));
     }
 
@@ -275,5 +276,27 @@ class ChatController extends Controller
             return response()->json(['valid' => false, 'error' => '无效的 API KEY']);
         }
         return response()->json(['valid' => true]);
+    }
+
+    public function amount(Request $request): JsonResponse
+    {
+        $request->validate([
+            'api_key' => 'required|string'
+        ]);
+        $apiKey = $request->input('api_key');
+        if (empty($apiKey)) {
+            return response()->json(['status' => false, 'error' => '无效的 API KEY']);
+        }
+        $response = Http::withToken($apiKey)->timeout(15)
+            ->get(config('openai.base_uri') . '/dashboard/billing/credit_grants');
+        if ($response->failed()) {
+            return response()->json(['status' => false, 'error' => '无效的 API KEY']);
+        }
+        return response()->json([
+            'status' => true,
+            'total_available' => $response->json('total_available'),
+            'total_granted' => $response->json('total_granted'),
+            'total_used' => $response->json('total_used')
+        ]);
     }
 }
