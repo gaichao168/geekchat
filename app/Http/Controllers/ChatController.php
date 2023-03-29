@@ -123,7 +123,7 @@ class ChatController extends Controller
             $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
             if ($httpCode >= 400) {
                 echo "data: [ERROR] $httpCode";
-                if (($httpCode == 400 || $httpCode == 401) && empty($apiKey)) {
+                if (($httpCode == 400 || $httpCode == 401 || $httpCode == 429) && empty($apiKey)) {
                     // app key 耗尽自动切换到下一个免费的 key
                     Artisan::call('app:update-open-ai-key');
                 }

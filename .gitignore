@@ -5,6 +5,8 @@
 /public/.well-known/
 /public/storage
 /public/build
+/public/ads.txt
+/public/bdunion.txt
 /storage/*.key
 /vendor
 .env
