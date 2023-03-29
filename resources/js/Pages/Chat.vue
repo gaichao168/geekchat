@@ -340,7 +340,7 @@ const regenerate = () => {
                     </a>
                 </div>
                 <div class="border rounded-md shadow-md p-4">
-                    <a href="https://apps.apple.com/app/opencat/id6445999201" target="_blank" class="block">
+                    <a href="https://translator.lance.moe" target="_blank" class="block">
                        <span class="flex text-xl font-bold">
 <img class="h-6 w-6 rounded-lg bg-gray-50" src="https://translator.lance.moe/favicon.png" alt="">
                            OpenAI 翻译器
@@ -351,7 +351,7 @@ const regenerate = () => {
                     </a>
                 </div>
                 <div class="border rounded-md shadow-md p-4">
-                    <a href="https://apps.apple.com/app/opencat/id6445999201" target="_blank" class="block">
+                    <a href="https://www.zeeno.ai" target="_blank" class="block">
                        <span class="flex text-xl font-bold">
                       <img class="h-6 w-6 rounded-lg bg-gray-50"
                            src="https://uploads-ssl.webflow.com/6402901a2a9eeaba148db81e/6402b710ab0458272618ac6a_Group%2037.png"
@@ -364,7 +364,7 @@ Zeeno 是一款生活在手机键盘中的 AI 助手。你可以在不离开手�
                     </a>
                 </div>
                 <div class="border rounded-md shadow-md p-4">
-                    <a href="https://apps.apple.com/app/opencat/id6445999201" target="_blank" class="block">
+                    <a href="https://github.com/zhayujie/chatgpt-on-wechat" target="_blank" class="block">
                        <span class="flex text-xl font-bold">
                          <img class="h-6 w-6 rounded-lg bg-gray-50"
                               src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="">
@@ -376,7 +376,7 @@ Zeeno 是一款生活在手机键盘中的 AI 助手。你可以在不离开手�
                     </a>
                 </div>
                 <div class="border rounded-md shadow-md p-4">
-                    <a href="https://apps.apple.com/app/opencat/id6445999201" target="_blank" class="block">
+                    <a href="https://github.com/yihong0618/xiaogpt" target="_blank" class="block">
                        <span class="flex text-xl font-bold">
                            <img class="h-6 w-6 rounded-lg bg-gray-50"
                                 src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="">
@@ -388,7 +388,7 @@ Zeeno 是一款生活在手机键盘中的 AI 助手。你可以在不离开手�
                     </a>
                 </div>
                 <div class="border rounded-md shadow-md p-4">
-                    <a href="https://apps.apple.com/app/opencat/id6445999201" target="_blank" class="block">
+                    <a href="https://fsys.app/" target="_blank" class="block">
                        <span class="flex text-xl font-bold">
                            <img class="h-6 w-6 rounded-lg bg-gray-50" src="https://fsys.app/favicon.ico" alt="">
                            风声雨声翻译
@@ -399,7 +399,7 @@ Zeeno 是一款生活在手机键盘中的 AI 助手。你可以在不离开手�
                     </a>
                 </div>
                 <div class="border rounded-md shadow-md p-4">
-                    <a href="https://apps.apple.com/app/opencat/id6445999201" target="_blank" class="block">
+                    <a href="https://adorable-antimony-856.notion.site/ChatGPT-8ce48bcb5aa94828a64c86a2dbfc307d" target="_blank" class="block">
                        <span class="flex text-xl font-bold">
                            <img class="h-6 w-6 rounded-lg bg-gray-50" src="https://www.notion.so/images/favicon.ico"
                                 alt="">
@@ -411,7 +411,7 @@ Zeeno 是一款生活在手机键盘中的 AI 助手。你可以在不离开手�
                     </a>
                 </div>
                 <div class="border rounded-md shadow-md p-4">
-                    <a href="https://apps.apple.com/app/opencat/id6445999201" target="_blank" class="block">
+                    <a href="https://b.jimmylv.cn/" target="_blank" class="block">
                        <span class="flex text-xl font-bold">
                            <img class="h-6 w-6 rounded-lg bg-gray-50"
                                 src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐣</text></svg>"
