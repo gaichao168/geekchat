@@ -265,6 +265,19 @@ const regenerate = () => {
             <div class="text-center my-4 font-bold sm:text-3xl my-2 sm:my-5 text-red-600">
                 坚持不易，请勿浪费！
             </div>
+
+            <div class="grid grid-cols-1">
+                <div class="py-8">
+                    <h1 class="text-center md:text-4xl text-2xl px-4">获取属于你的私人API Key</h1>
+
+                    <h3 class="text-center text-gray-400 pb-4 ">独立通道，数据安全</h3>
+
+                    <span class="block text-center text-2xl my-2">
+                        <a class="bg-blue-400 rounded-md  text-white px-4 py-2 hover:bg-blue-800"
+                           href="https://faka.mianshijun.com" target="_blank">点击这里</a>
+                    </span>
+                </div>
+            </div>
             <div class="hidden md:block w-1/2 py-8 mx-auto">
                 <h1 class="text-center text-4xl font-bold">感谢赞助</h1>
                 <span class="block text-sm text-center text-gray-400">坚持不易，感谢支持</span>
@@ -276,19 +289,6 @@ const regenerate = () => {
                         <img src="images/alipay_code.png" alt="">
                     </div>
                 </div>
-            </div>
-            <div class="grid grid-cols-1">
-                <div class="py-8">
-                    <h1 class="text-center md:text-4xl text-2xl px-4">获取属于你的私人API Key</h1>
-
-                    <h3 class="text-center text-gray-400 pb-4 ">独立通道，数据安全</h3>
-
-                    <span class="block text-center text-2xl my-2">
-                <a class="bg-blue-400 rounded-md  text-white px-4 py-2 hover:bg-blue-800"
-                   href="https://faka.mianshijun.com" target="_blank">点击这里</a>
-            </span>
-                </div>
-
             </div>
             <div class="py-8">
                 <h1 class="text-4xl text-center font-bold">正经聊天指南</h1>
