@@ -279,7 +279,7 @@ const regenerate = () => {
             </div>
             <div class="grid grid-cols-1">
                 <div class="py-8">
-                    <h1 class="text-center md:text-4xl text-2xl px-4">获取属于你的 OpenAI API 密钥</h1>
+                    <h1 class="text-center md:text-4xl text-2xl px-4">获取属于你的私人API Key</h1>
 
                     <h3 class="text-center text-gray-400 pb-4 ">独立通道，数据安全</h3>
 
