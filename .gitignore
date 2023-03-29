@@ -1,11 +1,12 @@
 /.phpunit.cache
 /node_modules
 /public/hot
+/public/.user.ini
+/public/.well-known/
 /public/storage
 /public/build
 /storage/*.key
 /vendor
-/resources/views
 .env
 .env.backup
 .env.production
@@ -21,3 +22,4 @@ yarn-error.log
 rr
 .rr.yaml
 openai_keys
+.htaccess
