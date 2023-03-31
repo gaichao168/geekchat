@@ -277,12 +277,11 @@ const regenerate = () => {
             </div>
         </div>
         <section class="container mx-auto">
-            <div class="text-center my-4 font-bold sm:text-3xl my-2 sm:my-5 text-red-600">
+            <div class="text-center font-bold sm:text-3xl my-2 sm:my-5 text-red-600">
                 坚持不易，请勿浪费！
             </div>
-
             <div class="grid grid-cols-1">
-                <div class="py-8">
+                <div class="py-2">
                     <h1 class="text-center md:text-4xl text-2xl px-4">获取属于你的私人API Key</h1>
 
                     <h3 class="text-center text-gray-400 pb-4 ">独立通道，数据安全</h3>
@@ -293,10 +292,20 @@ const regenerate = () => {
                     </span>
                 </div>
             </div>
-
+            <div class="w-1/2 py-2 mx-auto">
+                <h1 class="text-center text-4xl font-bold pb-2">加社群防失联</h1>
+                <span class="block text-sm text-center text-red-600">如果你有需要，请先加群，群满在加群主</span>
+                <div class="flex space-x-2 mt-4 justify-center items-center">
+                    <div class="border rounded-md text-center shadow-md overflow-hidden">
+                        <img class="w-48 h-48 " src="images/wechat_group.jpg" alt="">
+                    </div>
+                    <div class=" border rounded-md text-center shadow-md overflow-hidden">
+                        <img class="w-48  h-48" src="images/wechat_code.jpg" alt="">
+                    </div>
+                </div>
+            </div>
             <div class="grid grid-cols-1">
-                <div class="py-8">
-                    <h3 class="text-center pb-4 ">余额查询</h3>
+                <div class="py-4">
                     <h1 class="text-center md:text-4xl text-2xl px-4">输入 API Key 查询使用额度</h1>
 
                     <form @submit.prevent="getAmount" class="flex space-x-2 items-center justify-center mt-4 pb-4 ">
@@ -323,19 +332,7 @@ const regenerate = () => {
                     </div>
                 </div>
             </div>
-            <div class="hidden md:block w-1/2 py-8 mx-auto">
-                <h1 class="text-center text-4xl font-bold pb-2">加社群防失联</h1>
-                <span class="block text-sm text-center text-red-600">如果你有需要，请先加群，群满在加群主</span>
-                <div class="flex space-x-2 mt-4 justify-center items-center">
-                    <div class="border rounded-md text-center shadow-md overflow-hidden">
-                        <img class="w-48 h-48 " src="images/wechat_group.jpg" alt="">
-                    </div>
-                    <div class=" border rounded-md text-center shadow-md overflow-hidden">
-                        <img class="w-48  h-48" src="images/wechat_code.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="hidden md:block w-1/2 py-8 mx-auto">
+            <div class="hidden md:block w-1/2 py-2 mx-auto">
                 <h1 class="text-center text-4xl font-bold pb-2">感谢赞助</h1>
                 <span class="block text-sm text-center text-gray-400">坚持不易，感谢支持</span>
                 <div class="flex space-x-2 mt-4 justify-center items-center">
