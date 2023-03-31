@@ -324,7 +324,19 @@ const regenerate = () => {
                 </div>
             </div>
             <div class="hidden md:block w-1/2 py-8 mx-auto">
-                <h1 class="text-center text-4xl font-bold">感谢赞助</h1>
+                <h1 class="text-center text-4xl font-bold pb-2">加社群防失联</h1>
+                <span class="block text-sm text-center text-red-600">如果你有需要，请先加群，群满在加群主</span>
+                <div class="flex space-x-2 mt-4 justify-center items-center">
+                    <div class="border rounded-md text-center shadow-md overflow-hidden">
+                        <img class="w-48 h-48 " src="images/wechat_group.jpg" alt="">
+                    </div>
+                    <div class=" border rounded-md text-center shadow-md overflow-hidden">
+                        <img class="w-48  h-48" src="images/wechat_code.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="hidden md:block w-1/2 py-8 mx-auto">
+                <h1 class="text-center text-4xl font-bold pb-2">感谢赞助</h1>
                 <span class="block text-sm text-center text-gray-400">坚持不易，感谢支持</span>
                 <div class="flex space-x-2 mt-4 justify-center items-center">
                     <div class="w-48 h-48 border rounded-md shadow-md overflow-hidden">
