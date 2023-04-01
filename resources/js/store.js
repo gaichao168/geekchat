@@ -14,6 +14,7 @@ const store = createStore({
             totalGranted: 0.00,
             totalUsed: 0.00,
             isAmount: false,
+            isNotice: true,
         }
     },
     mutations: {
@@ -44,7 +45,10 @@ const store = createStore({
             state.totalAvailable = totalAvailable;
             state.totalUsed = totalUsed;
             state.isAmount = true;
-        }
+        },
+        setNotice(state, isNotice) {
+            state.isNotice = isNotice;
+        },
     },
     actions: {
         // 初始化消息
@@ -59,6 +63,8 @@ const store = createStore({
             }).catch(error => {
                 commit('initMessages', []);
             });
+            const isNotice = Boolean(window.localStorage.getItem("IS_NOTICE")) !== true
+            commit('setNotice', isNotice)
         },
         chatMessage({state, commit}, {message, regen = false}) {
             commit('toggleTyping')
@@ -289,6 +295,10 @@ const store = createStore({
             }).catch(error => {
                 alert('网络请求失败，请刷新页面重试');
             });
+        },
+        getNotice({commit}) {
+            window.localStorage.setItem("IS_NOTICE", false)
+            commit('setNotice', false);
         },
     },
     getters: {

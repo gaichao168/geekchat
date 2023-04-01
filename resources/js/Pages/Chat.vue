@@ -19,7 +19,7 @@ const totalUsed = computed(() => store.state.totalUsed)
 const totalGranted = computed(() => store.state.totalGranted)
 const totalAvailable = computed(() => store.state.totalAvailable)
 const isAmount = computed(() => store.state.isAmount)
-
+const isNotice = computed(() => store.state.isNotice)
 const form = useForm({
     prompt: null
 })
@@ -90,6 +90,10 @@ const getAmount = () => {
         return;
     }
     store.dispatch('getAmount', amount.amountKye)
+}
+
+const getNotice = () => {
+    store.dispatch('getNotice')
 }
 const regenerate = () => {
     if (!lastMessage.value || !lastAction.value) {
@@ -318,17 +322,15 @@ const regenerate = () => {
 
                     <div class="pt-2 px-2 border w-1/2 mx-auto rounded-md bg-gray-100" v-show="isAmount">
 
-                            <div class="flex justify-start py-1">总额：<span
-                                class="text-gray-600 px-2">${{ totalAvailable }}</span>
-                            </div>
-                            <div class="flex justify-start py-1">已用：<span
-                                class="text-gray-600 px-2">${{ totalUsed }}</span>
-                            </div>
-                            <div class=" flex justify-start py-1">剩余：<span
-                                class="text-gray-600 px-2">${{ totalGranted }}</span>
-                            </div>
-
-
+                        <div class="flex justify-start py-1">总额：<span
+                            class="text-gray-600 px-2">${{ totalGranted }}</span>
+                        </div>
+                        <div class="flex justify-start py-1">已用：<span
+                            class="text-gray-600 px-2">${{ totalUsed }}</span>
+                        </div>
+                        <div class=" flex justify-start py-1">剩余：<span
+                            class="text-gray-600 px-2">${{ totalAvailable }}</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -480,8 +482,46 @@ Zeeno 是一款生活在手机键盘中的 AI 助手。你可以在不离开手�
                 </div>
             </div>
 
+
+            <!-- Main modal -->
+            <div v-show="isNotice"
+                 class="fixed top-0 left-0 right-0 z-50 w-full p-4 overflow-x-hidden overflow-y-auto bg-gray-700 bg-opacity-50 min-h-screen md:inset-0 justify-center items-center flex">
+                <div class="relative w-full h-full max-w-2xl md:h-auto mx-auto">
+                    <!-- Modal content -->
+                    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                        <!-- Modal header -->
+                        <div class="flex items-center justify-center p-4 border-b rounded-t dark:border-gray-600">
+                            <h3 class="text-2xl font-bold text-red-600 dark:text-white">
+                                特别说明
+                            </h3>
+                        </div>
+                        <!-- Modal body -->
+                        <div class="p-6 space-y-6">
+                            <p class="text-base leading-relaxed text-gray-700 dark:text-gray-600">
+                                1.在使用过程中出现“<b>请求频率太高，请稍后再试</b>”，属于正常现象，毕竟本网站是属于<b>免费</b>使用，做了聊天频率限制，也可能没有<b>聊天额度</b>了,如果你有条件可以购买自己的API Key 使用，<b>专项通道，无频率限制</b>，<a
+                                href="https://faka.mianshijun.com" class="underline hover:text-blue-600 text-red-600" target="_blank">点击这里购买</a>
+                            </p>
+                            <p class="text-base leading-relaxed text-gray-700 dark:text-gray-600">
+                                2.本站坚持<b>免费提供</b>的聊天服务，实属不易，对于你们是免费的，对于我而是收费的，请大家<b>认真对待，避免浪费</b>，费用计算：<a
+                                href="https://chat.wobcw.com/shares/2"  class="underline hover:text-blue-600 text-red-600"  target="_blank">点击这里</a>
+                            </p>
+                        </div>
+                        <!-- Modal footer -->
+                        <div
+                            class="flex justify-end items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+                            <button @click="getNotice" type="button"
+                                    class="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                我已了解
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </section>
     </div>
+
+
 </template>
 <script>
 import NavLink from '../Components/NavLink.vue'

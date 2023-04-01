@@ -32,7 +32,7 @@
             <a href="/" class="dark:text-white text-black py-3 px-4 hover:text-teal-500 hover:bg-gray-500">联系我们</a>
         </nav>
         @if (Route::has('login'))
-            <div class="">
+            <div class="hidden">
                 @auth
                     <div class="hidden sm:flex sm:items-center sm:ml-6">
                         <x-dropdown align="right" width="48">
