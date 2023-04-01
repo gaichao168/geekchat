@@ -275,6 +275,7 @@ const store = createStore({
                 commit('clearMessages');
                 window.localStorage.removeItem('GEEKCHAT_LAST_ACTION');
                 window.localStorage.removeItem('GEEKCHAT_LAST_MESSAGE');
+                window.localStorage.removeItem('IS_NOTICE');
                 commit('setLastLog', {action: '', message: ''});
             }).catch(error => {
                 console.log(error);
