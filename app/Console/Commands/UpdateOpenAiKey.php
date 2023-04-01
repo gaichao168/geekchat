@@ -32,17 +32,22 @@ class UpdateOpenAiKey extends Command
         $apiKey = config('openai.api_key');
         $response = Http::withToken($apiKey)->timeout(15)
             ->get(config('openai.base_uri') . '/dashboard/billing/credit_grants');
-        $amount = $response->json('total_available');
-        if ($amount > 0) {
+        $granted = $response->json('total_granted');
+        $used = $response->json('total_used');
+        $available = $response->json('total_available');
+        if ($available > 0) {
             $this->info('Current key is still valid.');
             return;
         }
-        OpenAiKey::where('key',$apiKey)->update([
-            'end_at'=>now()
+        OpenAiKey::where('key', $apiKey)->update([
+            'end_at' => now(),
+            'total_granted' => $granted,
+            'total_used' => $used,
+            'total_available' => $available,
         ]);
         $new_key = OpenAiKey::query()->whereNull('end_at')->first()?->key;
         if (!$new_key) {
-           Log::error('No more keys.');
+            Log::error('No more keys.');
             return;
         }
 

@@ -10,5 +10,9 @@ class OpenAiKey extends Model
     use HasFactory;
 
 
-    protected $fillable = ['end_at'];
+    protected $fillable = [
+        'end_at',
+        'total_granted',
+        'total_used',
+        'total_available'];
 }
