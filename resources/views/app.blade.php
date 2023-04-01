@@ -108,7 +108,7 @@
             </div>
             <div class="flex items-center justify-center text-center ">
                 <ul>
-                    <li class="font-bold">其他</li>
+                    <li class="font-bold">资源推荐</li>
                     <li>待定</li>
                 </ul>
             </div>
