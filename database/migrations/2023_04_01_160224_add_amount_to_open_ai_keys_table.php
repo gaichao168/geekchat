@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('open_ai_keys', function (Blueprint $table) {
-            $table->decimal('total_granted',2)->default(0.00)->comment('总额');
-            $table->decimal('total_used',2)->default(0.00)->comment('已用');
-            $table->decimal('total_available',2)->default(0.00)->comment('剩余');
+            $table->decimal('total_granted')->default(0.00)->comment('总额');
+            $table->decimal('total_used')->default(0.00)->comment('已用');
+            $table->decimal('total_available')->default(0.00)->comment('剩余');
         });
     }
 
