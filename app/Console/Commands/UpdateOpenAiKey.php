@@ -43,7 +43,7 @@ class UpdateOpenAiKey extends Command
         OpenAiKey::where('key', $apiKey)->update([
             'end_at' => now(),
             'total_granted' => $granted,
-            'total_used' => $used,
+            'total_used' =>c $used,
             'total_available' => $available,
         ]);
         $new_key = OpenAiKey::query()->whereNull('end_at')->first()?->key;

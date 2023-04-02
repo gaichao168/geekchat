@@ -298,7 +298,7 @@ const store = createStore({
             });
         },
         getNotice({commit}) {
-            window.localStorage.setItem("IS_NOTICE", false)
+            // window.localStorage.setItem("IS_NOTICE", false)
             commit('setNotice', false);
         },
     },
