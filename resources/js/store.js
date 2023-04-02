@@ -63,8 +63,8 @@ const store = createStore({
             }).catch(error => {
                 commit('initMessages', []);
             });
-            const isNotice = Boolean(window.localStorage.getItem("IS_NOTICE")) !== true
-            commit('setNotice', isNotice)
+            // const isNotice = Boolean(window.localStorage.getItem("IS_NOTICE")) !== true
+            commit('setNotice', true)
         },
         chatMessage({state, commit}, {message, regen = false}) {
             commit('toggleTyping')
