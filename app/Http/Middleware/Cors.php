@@ -9,13 +9,18 @@ class Cors
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure $next
      * @return mixed
      */
     public function handle($request, Closure $next)
     {
-        return $next($request)
-            ->header('Access-Control-Allow-Origin', '*');
+        if (!$request->routeIs('wechat')) {
+            return $next($request)
+                ->header('Access-Control-Allow-Origin', '*');
+        } else {
+            return $next($request);
+        }
+
     }
 }

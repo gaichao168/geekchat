@@ -3,6 +3,7 @@
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShareController;
+use App\Http\Controllers\WeChatController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//微信公众号
+Route::any('/wechat',[WeChatController::class,'serve'])->name('wechat');
 
 Route::get('/', ChatController::class . '@index')->name('home');
 Route::get('/messages', ChatController::class . '@messages')->name('messages');
@@ -26,6 +29,8 @@ Route::post('/amount', ChatController::class . '@amount')->name('amount');
 Route::post('/audio', ChatController::class . '@audio')->name('audio')->middleware('throttle:audio');
 Route::post('/image', ChatController::class . '@image')->name('image')->middleware('throttle:imgae');
 Route::get('/reset', ChatController::class . '@reset')->name('reset');
+
+Route::post('/isValidCode',[ChatController::class,'isValidCode'])->name('isValidCode');
 
 Route::group(['prefix'=>'shares'],function (){
    Route::get('/',[ShareController::class,'index'])->name('shares');

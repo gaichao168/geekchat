@@ -3,14 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Facades\OpenAI;
+use Cache;
 use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rules\File;
 use Inertia\Inertia;
@@ -58,7 +57,17 @@ class ChatController extends Controller
         }
         $chatId = Str::uuid(); // 生成一个唯一聊天ID作为下次请求的凭证
         $request->session()->put('chat_id', $chatId);
-        return response()->json(['chat_id' => $chatId, 'message' => $userMessage]);
+        $code = '';
+        $isModal = false;
+        $ip = $request->ip();
+        $key = md5($ip);
+        if (count(session('messages', [])) > 3 && !Cache::get($key, false)) {
+            $code = mt_rand(1000, 9999);
+            Cache::put($key, false);
+            Cache::put($code, $key,300);
+            $isModal = true;
+        }
+        return response()->json(['chat_id' => $chatId, 'message' => $userMessage, 'isModal' => $isModal, 'code' => $code]);
     }
 
     /**
@@ -310,6 +319,16 @@ class ChatController extends Controller
             'total_available' => $response->json('total_available'),
             'total_granted' => $response->json('total_granted'),
             'total_used' => $response->json('total_used')
+        ]);
+    }
+
+    public function isValidCode(Request $request)
+    {
+        $ip = request()->ip();
+        $key = md5($ip);
+        return response()->json([
+            'status' => true,
+            'isValidRes' => (bool)Cache::get($key)
         ]);
     }
 }

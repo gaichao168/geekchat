@@ -17,11 +17,13 @@
         "laravel/tinker": "^2.8",
         "openai-php/client": "^0.3.4",
         "orhanerday/open-ai": "^4.7",
+        "overtrue/laravel-wechat": "^7.2",
         "spatie/laravel-responsecache": "^7.4",
         "spiral/roadrunner": "^2.8.2",
         "tightenco/ziggy": "^1.0"
     },
     "require-dev": {
+        "barryvdh/laravel-ide-helper": "^2.13",
         "fakerphp/faker": "^1.9.1",
         "laravel/breeze": "^1.19",
         "laravel/envoy": "^2.8",
@@ -61,7 +63,9 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": []
+            "dont-discover": [
+                "barryvdh/laravel-ide-helper"
+            ]
         }
     },
     "config": {

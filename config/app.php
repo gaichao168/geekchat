@@ -214,6 +214,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+        'EasyWeChat' => Overtrue\LaravelWeChat\EasyWeChat::class,
     ])->toArray(),
 
 ];

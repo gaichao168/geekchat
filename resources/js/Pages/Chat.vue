@@ -20,6 +20,9 @@ const totalGranted = computed(() => store.state.totalGranted)
 const totalAvailable = computed(() => store.state.totalAvailable)
 const isAmount = computed(() => store.state.isAmount)
 const isNotice = computed(() => store.state.isNotice)
+const officialAccountModal = computed(() => store.state.officialAccount.isModal)
+const isValidErr = computed(() => store.state.officialAccount.isValidErr);
+const modalCode = computed(()=>store.state.officialAccount.code);
 const form = useForm({
     prompt: null
 })
@@ -95,6 +98,10 @@ const getAmount = () => {
 const getNotice = () => {
     store.dispatch('getNotice')
 }
+
+const validCode = ()=>[
+    store.dispatch('validCode')
+]
 const regenerate = () => {
     if (!lastMessage.value || !lastAction.value) {
         return
@@ -482,11 +489,45 @@ Zeeno 是一款生活在手机键盘中的 AI 助手。你可以在不离开手�
                 </div>
             </div>
 
-
+            <div v-show="officialAccountModal"
+                 class="fixed top-0 left-0 right-0 z-50 w-full p-4 overflow-x-hidden overflow-y-auto bg-gray-700 bg-opacity-50 min-h-screen md:inset-0 justify-center items-center flex">
+                <div class="relative w-full h-full max-w-md md:h-auto mx-auto">
+                    <!-- Modal content -->
+                    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                        <!-- Modal body -->
+                        <div class="pt-4  border-b border-gray-200">
+                            <p class="text-base text-center leading-relaxed">
+                                请关注<span class="text-red-600">微信公众号</span>发送验证码:
+                                <span class="text-2xl block font-bold">{{modalCode}}</span>
+                            </p>
+                            <p v-if="isValidErr"
+                               class="text-center text-xl font-bold text-red-600 bg-red-100 py-2 rounded-xl">
+                                解锁失败</p>
+                            <div class="flex justify-center  pb-4 overflow-hidden">
+                                <img class="object-none" src="images/qrcode.jpg" alt="">
+                            </div>
+                        </div>
+                        <!-- Modal body -->
+                        <div class="border-b border-gray-200">
+                            <p class="text-base text-center leading-relaxed text-gray-700 dark:text-gray-600">
+                                坚持以<b>免费</b>为原则，请大家<b>认真对待，避免浪费</b>
+                            </p>
+                        </div>
+                        <!-- Modal footer -->
+                        <div
+                            class="flex justify-end items-center p-6 space-x-2 rounded-b dark:border-gray-600">
+                            <button @click="validCode" type="button"
+                                    class="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                解锁
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- Main modal -->
             <div v-show="isNotice"
                  class="fixed top-0 left-0 right-0 z-50 w-full p-4 overflow-x-hidden overflow-y-auto bg-gray-700 bg-opacity-50 min-h-screen md:inset-0 justify-center items-center flex">
-                <div class="relative w-full h-full max-w-2xl md:h-auto mx-auto">
+                <div class="relative w-full h-full max-w-xl md:h-auto mx-auto">
                     <!-- Modal content -->
                     <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                         <!-- Modal header -->
@@ -496,9 +537,9 @@ Zeeno 是一款生活在手机键盘中的 AI 助手。你可以在不离开手�
                             </h3>
                         </div>
                         <!-- Modal body -->
-                        <div class="p-6 space-y-6  border-b border-gray-200">
+                        <div class="px-4 space-y-2  border-b border-gray-200">
                             <p class="text-base leading-relaxed text-red-600">
-                                <span class="font-bold">紧急通知</span>：从30号开始官方现在大面积处理账号，好多服务已经不能用，现在正在找其他解决方案，又需要的同学可以先加入社群，方便即使得到通知！
+                                <span class="font-bold">紧急通知</span>：从30号开始官方现在大面积处理账号，好多服务不是很稳定，加入社群，谨防失联！
                             </p>
                             <div class=" flex justify-center  overflow-hidden">
                                 <img class="w-56 h-56 " src="images/wechat_group.jpg" alt="">
@@ -512,13 +553,14 @@ Zeeno 是一款生活在手机键盘中的 AI 助手。你可以在不离开手�
                         </div>
                         <!-- Modal body -->
                         <div class="p-6 space-y-6  border-b border-gray-200">
-<!--                            <p class="text-base leading-relaxed text-gray-700 dark:text-gray-600">-->
-<!--                                1.在使用过程中出现“<b>请求频率太高，请稍后再试</b>”，属于正常现象，毕竟本网站是属于<b>免费</b>使用，做了聊天频率限制，也可能没有<b>聊天额度</b>了,如果你有条件可以购买自己的API Key 使用，<b>专项通道，无频率限制</b>，<a-->
-<!--                                href="https://faka.mianshijun.com" class="underline hover:text-blue-600 text-red-600" target="_blank">点击这里购买</a>-->
-<!--                            </p>-->
+                            <!--                            <p class="text-base leading-relaxed text-gray-700 dark:text-gray-600">-->
+                            <!--                                1.在使用过程中出现“<b>请求频率太高，请稍后再试</b>”，属于正常现象，毕竟本网站是属于<b>免费</b>使用，做了聊天频率限制，也可能没有<b>聊天额度</b>了,如果你有条件可以购买自己的API Key 使用，<b>专项通道，无频率限制</b>，<a-->
+                            <!--                                href="https://faka.mianshijun.com" class="underline hover:text-blue-600 text-red-600" target="_blank">点击这里购买</a>-->
+                            <!--                            </p>-->
                             <p class="text-base leading-relaxed text-gray-700 dark:text-gray-600">
                                 本站坚持<b>免费提供</b>服务，实属不易，对于你们是免费的，对于我而是收费的，请大家<b>认真对待，避免浪费</b>，费用计算：<a
-                                href="https://chat.wobcw.com/shares/2"  class="underline hover:text-blue-600 text-red-600"  target="_blank">点击这里</a>
+                                href="https://chat.wobcw.com/shares/2"
+                                class="underline hover:text-blue-600 text-red-600" target="_blank">点击这里</a>
                             </p>
                         </div>
                         <!-- Modal footer -->

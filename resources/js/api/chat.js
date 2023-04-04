@@ -63,5 +63,9 @@ export default {
         formData.append('api_key', api_key);
         return axios.post(CHAT_CONFIG.BASE_URL + '/amount', formData, { responseType: 'json' })
     },
+    isValidOfficialAccount:()=>{
+        const formData = new FormData();
+        return axios.post(CHAT_CONFIG.BASE_URL+'/isValidCode',formData,{responseType:'json'})
+    }
 
 }

@@ -15,6 +15,11 @@ const store = createStore({
             totalUsed: 0.00,
             isAmount: false,
             isNotice: true,
+            officialAccount: {
+                isModal: false,
+                isValidErr: false,
+                code: '',
+            },
         }
     },
     mutations: {
@@ -49,6 +54,11 @@ const store = createStore({
         setNotice(state, isNotice) {
             state.isNotice = isNotice;
         },
+        setOfficialAccountModal(state, {isModal, isValidErr = false, code = ''}) {
+            state.officialAccount.isModal = isModal;
+            state.officialAccount.isValidErr = isValidErr;
+            state.officialAccount.code = code;
+        }
     },
     actions: {
         // 初始化消息
@@ -89,6 +99,10 @@ const store = createStore({
                 }
                 return response.json();
             }).then(data => {
+                commit('setOfficialAccountModal', {
+                    isModal: data.isModal,
+                    code: data.code,
+                })
                 commit('addMessage', {'role': 'assistant', 'content': '正在思考如何回答您的问题，请稍候...'})
                 const apiKey = state.apiKey ? btoa(state.apiKey) : '';
                 const eventSource = new EventSource(`/stream?chat_id=${data.chat_id}&api_key=${apiKey}`);
@@ -301,6 +315,22 @@ const store = createStore({
             // window.localStorage.setItem("IS_NOTICE", false)
             commit('setNotice', false);
         },
+        validCode({commit}) {
+            ChatAPI.isValidOfficialAccount().then(response => {
+                if (response.data.isValidRes === true) {
+                    commit('setOfficialAccountModal', {
+                        isModal: false,
+                    })
+                } else {
+                    const code = store.state.officialAccount.code
+                    commit('setOfficialAccountModal', {
+                        isModal: true,
+                        isValidErr: true,
+                        code,
+                    })
+                }
+            })
+        }
     },
     getters: {
         // 获取所有消息
