@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { CHAT_CONFIG } from '../config.js';
+import { CHAT_CONFIG } from '@/config';
 
 export default {
     // 获取所有消息

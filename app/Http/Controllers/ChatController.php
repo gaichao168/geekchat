@@ -63,8 +63,8 @@ class ChatController extends Controller
         $key = md5($ip);
         if (count(session('messages', [])) > 3 && !Cache::get($key, false)) {
             $code = mt_rand(1000, 9999);
-            Cache::put($key, false);
-            Cache::put($code, $key,300);
+            Cache::set($key, false);
+            Cache::set($code, $key,300);
             $isModal = true;
         }
         return response()->json(['chat_id' => $chatId, 'message' => $userMessage, 'isModal' => $isModal, 'code' => $code]);

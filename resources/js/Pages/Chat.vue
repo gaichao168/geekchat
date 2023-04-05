@@ -3,6 +3,7 @@ import AudioWidget from '@/Components/AudioWidget.vue';
 import {Head, Link, useForm} from '@inertiajs/vue3';
 import {useStore} from 'vuex';
 import {computed, onMounted} from 'vue';
+import {CHAT_CONFIG} from '@/config';
 
 // 消息列表初始化
 const store = useStore()
@@ -22,7 +23,9 @@ const isAmount = computed(() => store.state.isAmount)
 const isNotice = computed(() => store.state.isNotice)
 const officialAccountModal = computed(() => store.state.officialAccount.isModal)
 const isValidErr = computed(() => store.state.officialAccount.isValidErr);
-const modalCode = computed(()=>store.state.officialAccount.code);
+const modalCode = computed(() => store.state.officialAccount.code);
+const qrcode = CHAT_CONFIG.QRCODE;
+
 const form = useForm({
     prompt: null
 })
@@ -99,7 +102,7 @@ const getNotice = () => {
     store.dispatch('getNotice')
 }
 
-const validCode = ()=>[
+const validCode = () => [
     store.dispatch('validCode')
 ]
 const regenerate = () => {
@@ -288,12 +291,12 @@ const regenerate = () => {
             </div>
         </div>
         <section class="container mx-auto">
-            <div class="text-center font-bold sm:text-3xl my-2 sm:my-5 text-red-600">
+            <div class="text-center font-bold sm:text-3xl  text-red-600">
                 坚持不易，请勿浪费！
             </div>
-            <div class="grid grid-cols-1">
-                <div class="py-2">
-                    <h1 class="text-center md:text-4xl text-2xl px-4">获取属于你的私人API Key</h1>
+            <div class="md:flex mx-2   md:items-center my-2 md:justify-center border rounded-md shadow-md ">
+                <div class="px-4 md:w-1/2 pb-4">
+                    <h1 class="text-center md:text-4xl text-2xl">获取属于你的私人API Key</h1>
 
                     <h3 class="text-center text-gray-400 pb-4 ">独立通道，数据安全</h3>
 
@@ -302,19 +305,14 @@ const regenerate = () => {
                            href="https://faka.mianshijun.com" target="_blank">点击这里</a>
                     </span>
                 </div>
-            </div>
-            <div class="w-1/2 py-2 mx-auto">
-                <h1 class="text-center text-4xl font-bold pb-2">加社群防失联</h1>
-                <span class="block text-sm text-center text-red-600">如果你有需要，请先加群，群满在加群主</span>
-                <div class="flex space-x-2 mt-4 justify-center items-center">
-                    <div class="border rounded-md text-center shadow-md overflow-hidden">
-                        <img class="w-48 h-48 " src="images/wechat_group.jpg" alt="">
-                    </div>
-                    <div class=" border rounded-md text-center shadow-md overflow-hidden">
-                        <img class="w-48  h-48" src="images/wechat_code.jpg" alt="">
+                <div class=" p-2 m-4 border  rounded-md md:w-1/2 bg-gray-100 ">
+                    <h1 class="text-center text-2xl font-bold ">加社群防失联</h1>
+                    <div class=" flex justify-center overflow-hidden">
+                        <img class="w-56 h-56 " src="images/wechat_group.jpg" alt="">
                     </div>
                 </div>
             </div>
+
             <div class="grid grid-cols-1">
                 <div class="py-4">
                     <h1 class="text-center md:text-4xl text-2xl px-4">输入 API Key 查询使用额度</h1>
@@ -497,14 +495,14 @@ Zeeno 是一款生活在手机键盘中的 AI 助手。你可以在不离开手�
                         <!-- Modal body -->
                         <div class="pt-4  border-b border-gray-200">
                             <p class="text-base text-center leading-relaxed">
-                                请关注<span class="text-red-600">微信公众号</span>发送验证码:
-                                <span class="text-2xl block font-bold">{{modalCode}}</span>
+                                <span class="block text-red-600">关注微信公众号，解锁无限服务</span>发送验证码:
+                                <span class="text-2xl font-bold">{{ modalCode }}</span>
                             </p>
                             <p v-if="isValidErr"
                                class="text-center text-xl font-bold text-red-600 bg-red-100 py-2 rounded-xl">
                                 解锁失败</p>
                             <div class="flex justify-center  pb-4 overflow-hidden">
-                                <img class="object-none" src="images/qrcode.jpg" alt="">
+                                <img class="object-none" :src="qrcode" alt="">
                             </div>
                         </div>
                         <!-- Modal body -->
@@ -539,7 +537,7 @@ Zeeno 是一款生活在手机键盘中的 AI 助手。你可以在不离开手�
                         <!-- Modal body -->
                         <div class="px-4 space-y-2  border-b border-gray-200">
                             <p class="text-base leading-relaxed text-red-600">
-                                <span class="font-bold">紧急通知</span>：从30号开始官方现在大面积处理账号，好多服务不是很稳定，加入社群，谨防失联！
+                                <span class="font-bold">紧急通知</span>：从3.30号开始官方现在处理账号，服务不是很稳定，加入社群，谨防失联！
                             </p>
                             <div class=" flex justify-center  overflow-hidden">
                                 <img class="w-56 h-56 " src="images/wechat_group.jpg" alt="">
