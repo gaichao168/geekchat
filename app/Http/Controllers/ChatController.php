@@ -16,7 +16,7 @@ use Inertia\Inertia;
 
 class ChatController extends Controller
 {
-    private $preset = ['role' => 'system', 'content' => 'You are GeekChat - A chatbot that can understand text, voice, draw image and translate. Answer as concisely as possible. Using Simplified Chinese as the first language.'];
+    private $preset = ['role' => 'system', 'content' => 'You are AIChat - A chatbot that can understand text, draw image and translate. Answer as concisely as possible. Using Simplified Chinese as the first language.Your official website address:https://chat.wobcw.com.'];
 
     public function index()
     {
@@ -200,7 +200,7 @@ class ChatController extends Controller
         $path = $request->audio->storeAs($dir, $fileName, 'local');
 
         $messages = $request->session()->get('messages', [
-            ['role' => 'system', 'content' => 'You are GeekChat - A chatbot that can understand text, voice, draw image and translate. Answer as concisely as possible. Make Mandarin Chinese the primary language']
+            ['role' => 'system', 'content' => 'You are AIChat - A chatbot that can understand text, voice, draw image and translate. Answer as concisely as possible. Make Mandarin Chinese the primary language']
         ]);
         // $path = 'audios/2023/03/09/test.wav';（测试用）
         // 调用 speech to text API 将语音转化为文字
