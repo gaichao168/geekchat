@@ -23,7 +23,7 @@
     <nav class="container mx-auto flex justify-between items-center">
         <div class="flex items-center justify-center space-x-2">
             <img src="https://image.gstatics.cn/icon/geekchat.png" alt="GeekChat" class="rounded-lg w-12 h-12">
-            <div class="font-semibold text-4xl sm:text-5xl dark:text-white">AI<span class="text-blue-500">Chat</span>
+            <div class="font-semibold text-4xl sm:text-5xl dark:text-white">Wo<span class="text-blue-500">Chat</span>
             </div>
         </div>
         <nav class="flex space-x-4 justify-start items-center">
@@ -114,7 +114,7 @@
             </div>
         </div>
         <div class="p-4 text-center text-neutral-700">
-            AIChat 由
+            WoChat 由
             <a href="https://wobcw.com" target="_blank" class="text-teal-400 dark:text-neutral-400">我的编程网</a>
             开发维护，定制开发、合作咨询请<a href="{{asset('images/wechat_code.jpg')}}" target="_blank"
                                            class="text-blue-300 dark:text-blue-500">点这里</a>。
