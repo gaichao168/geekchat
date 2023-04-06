@@ -9,7 +9,8 @@
     <title inertia>我的编程-@yield('title','首页')</title>
     <meta name="keyword" content="@yield('keyword','AIChat, 聊天机器人, 智能交互')">
     <!-- Fonts -->
-
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4193846562907716"
+            crossorigin="anonymous"></script>
     <!-- Scripts -->
     <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
 
