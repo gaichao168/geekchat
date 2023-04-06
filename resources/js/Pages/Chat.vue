@@ -296,16 +296,14 @@ const regenerate = () => {
             </div>
             <div class="flex justify-center">
                 <div class="block max-w-sm rounded-lg bg-white shadow-lg  mx-5">
-                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4193846562907716"
-                            crossorigin="anonymous"></script>
-                    <!-- chat-web -->
-                    <ins class="adsbygoogle"
-                         style="display:inline-block;width:336px;height:280px"
-                         data-ad-client="ca-pub-4193846562907716"
-                         data-ad-slot="8753144254"></ins>
-                    <script>
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
+                    <amp-ad
+                        layout="fixed"
+                        width="336"
+                        height="280"
+                        type="adsense"
+                        data-ad-client="ca-pub-4193846562907716"
+                        data-ad-slot="8753144254">
+                    </amp-ad>
                 </div>
             </div>
 
