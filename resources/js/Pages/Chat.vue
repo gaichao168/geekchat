@@ -295,8 +295,27 @@ const regenerate = () => {
                 坚持不易，请勿浪费！
             </div>
             <div class="flex justify-center">
-                <div class="block max-w-sm rounded-lg bg-white shadow-lg  mx-5">
+                <div class="block max-w-sm rounded-lg bg-white shadow-lg   mx-5">
+                    <component is="style">
+                        .googleads_responsive {
+                            width: 300px;
+                            height: 250px;
+                        }
 
+                        @media(min-width: 500px) {
+                            .googleads_responsive {
+                                width: 300px;
+                                height: 250px;
+                            }
+                        }
+
+                        @media(min-width: 800px) {
+                            .googleads_responsive {
+                                width: 336px;
+                                height: 280px;
+                            }
+                        }
+                    </component>
                     <!-- chat-web -->
                     <ins class="adsbygoogle"
                          style="display:block"
