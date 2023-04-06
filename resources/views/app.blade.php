@@ -104,8 +104,7 @@
                     </li>
                     <li><a href="https://fanshijun.com" class="hover:text-teal-400 underline" target="_blank">面试网</a>
                     </li>
-                    <li><a href="https://faka.fanshijun.com" class="hover:text-teal-400 underline"
-                           target="_blank">王朝数卡</a></li>
+                    <li><a href="https://faka.fanshijun.com" class="hover:text-teal-400 underline" target="_blank">王朝数卡</a></li>
                 </ul>
             </div>
             <div class="flex items-center justify-center text-center border-r border-teal-300">
@@ -117,7 +116,7 @@
             <div class="flex items-center justify-center text-center ">
                 <ul>
                     <li class="font-bold">资源推荐</li>
-                    <li>待定</li>
+                    <li><a href="https://uvfin6qskzu.feishu.cn/docx/JaMkdq2n8oxRJMxhzw5c8Dl7n7b" class="hover:text-teal-400 underline" target="_blank">GPT实用手册</a></li>
                 </ul>
             </div>
         </div>
