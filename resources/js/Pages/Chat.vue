@@ -317,12 +317,15 @@ const regenerate = () => {
                         }
                     </component>
                     <!-- chat-web -->
-                    <ins class="adsbygoogle"
+                    <ins class="adsbygoogle googleads_responsive"
                          style="display:block"
                          data-ad-client="ca-pub-4193846562907716"
                          data-ad-slot="8753144254"
                          data-ad-format="auto"
                          data-full-width-responsive="true"></ins>
+                    <component is="script">
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </component>
                 </div>
             </div>
 

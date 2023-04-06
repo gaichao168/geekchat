@@ -130,9 +130,6 @@
     </div>
 
 </footer>
-<script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 </body>
 
 </html>
