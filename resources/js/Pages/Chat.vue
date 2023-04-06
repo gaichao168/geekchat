@@ -296,14 +296,7 @@ const regenerate = () => {
             </div>
             <div class="flex justify-center">
                 <div class="block max-w-sm rounded-lg bg-white shadow-lg  mx-5">
-                    <amp-ad
-                        layout="fixed"
-                        width="336"
-                        height="280"
-                        type="adsense"
-                        data-ad-client="ca-pub-4193846562907716"
-                        data-ad-slot="8753144254">
-                    </amp-ad>
+
                 </div>
             </div>
 

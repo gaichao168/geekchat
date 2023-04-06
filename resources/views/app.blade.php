@@ -9,11 +9,8 @@
     <title inertia>我的编程-@yield('title','首页')</title>
     <meta name="keyword" content="@yield('keyword','AIChat, 聊天机器人, 智能交互')">
     <!-- Fonts -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4193846562907716"
-            crossorigin="anonymous"></script>
-    <!-- Scripts -->
-    <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
 
+    <!-- Scripts -->
     @routes
     @vite(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue"])
     @inertiaHead
@@ -92,6 +89,18 @@
 </div>
 
 @inertia
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4193846562907716"
+        crossorigin="anonymous"></script>
+<!-- chat-web -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4193846562907716"
+     data-ad-slot="8753144254"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 <footer class="">
     <div class="container mx-auto ">
         <div class="grid grid-cols-3">
