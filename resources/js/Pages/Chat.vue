@@ -294,6 +294,21 @@ const regenerate = () => {
             <div class="text-center font-bold sm:text-3xl  text-red-600">
                 坚持不易，请勿浪费！
             </div>
+            <div class="flex justify-center">
+                <div class="block max-w-sm rounded-lg bg-white shadow-lg  mx-5">
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4193846562907716"
+                            crossorigin="anonymous"></script>
+                    <!-- chat-web -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:336px;height:280px"
+                         data-ad-client="ca-pub-4193846562907716"
+                         data-ad-slot="8753144254"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+            </div>
+
             <div class="md:flex mx-2   md:items-center my-2 md:justify-center border rounded-md shadow-md ">
                 <div class="px-4 md:w-1/2 pb-4">
                     <h1 class="text-center md:text-4xl text-2xl">获取属于你的私人API Key</h1>
