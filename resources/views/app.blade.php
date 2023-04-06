@@ -11,8 +11,10 @@
     <!-- Fonts -->
 
     <!-- Scripts -->
-    <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4193846562907716"
+            crossorigin="anonymous">
 
+    </script>
     @routes
     @vite(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue"])
     @inertiaHead
@@ -98,9 +100,12 @@
             <div class="flex items-center justify-center text-center border-r border-teal-300">
                 <ul class="space-y-1">
                     <li class="font-bold">友情连接</li>
-                    <li><a href="https://wobcw.com" class="hover:text-teal-400 underline" target="_blank">我的编程网</a></li>
-                    <li><a href="https://fanshijun.com" class="hover:text-teal-400 underline" target="_blank">面试网</a></li>
-                    <li><a href="https://faka.fanshijun.com" class="hover:text-teal-400 underline" target="_blank">王朝数卡</a></li>
+                    <li><a href="https://wobcw.com" class="hover:text-teal-400 underline" target="_blank">我的编程网</a>
+                    </li>
+                    <li><a href="https://fanshijun.com" class="hover:text-teal-400 underline" target="_blank">面试网</a>
+                    </li>
+                    <li><a href="https://faka.fanshijun.com" class="hover:text-teal-400 underline"
+                           target="_blank">王朝数卡</a></li>
                 </ul>
             </div>
             <div class="flex items-center justify-center text-center border-r border-teal-300">
@@ -125,6 +130,9 @@
     </div>
 
 </footer>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 </body>
 
 </html>

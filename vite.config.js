@@ -21,7 +21,7 @@ export default defineConfig({
                     includeAbsolute: false,
                 },
                 compilerOptions: {
-                    isCustomElement: (tag) => ['amp-ad'].includes(tag),
+                    isCustomElement: (tag) => ['ins'].includes(tag),
                 },
             },
         }),
