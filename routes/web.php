@@ -3,6 +3,7 @@
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShareController;
+use App\Http\Controllers\ValidKeyController;
 use App\Http\Controllers\WeChatController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 //微信公众号
 Route::any('/wechat',[WeChatController::class,'serve'])->name('wechat');
+Route::any('/v1/valid_user_key',[ValidKeyController::class,'validKey'])->name('wechat');
 
 Route::get('/', ChatController::class . '@index')->name('home');
 Route::get('/messages', ChatController::class . '@messages')->name('messages');
