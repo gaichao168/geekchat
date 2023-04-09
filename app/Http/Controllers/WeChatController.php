@@ -56,7 +56,7 @@ class WeChatController extends Controller
                     'end_at' => $endAt,
                 ]);
 
-                return sprintf("你的身份口令是：%s\n有效期：7 天\n体验地址：http://gpt.wobcw.com", $gptKey->key);
+                return sprintf("领取成功！\n你的身份口令是：%s\n有效时间：%s--%s\n\n体验地址：https://gpt.wobcw.com", $gptKey->key,$startAt->toDateTimeString(),$endAt->toDateTimeString());
             } else if (strpos($str, "群") !== false) {
 
                 return [
