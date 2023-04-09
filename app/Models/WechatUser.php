@@ -5,11 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class UserGptKey extends Model
+class WechatUser extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'key','start_at','end_at','wechat_id'
-        ];
+    protected $fillable = ['openid','subscribe'];
 }

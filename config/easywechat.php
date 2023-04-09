@@ -1,6 +1,12 @@
 <?php
 
 return [
+
+    #群
+    'wechat_group_media_id'=>env('WECHAT_GROUP_MEDIA_ID',''),
+    #个人微信
+    'wechat_media_id'=>env('WECHAT_MEDIA_ID',''),
+
     /*
      * 默认配置，将会合并到各模块中
      */
