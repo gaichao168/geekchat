@@ -292,11 +292,11 @@ class ChatController extends Controller
         if (empty($apiKey)) {
             return response()->json(['valid' => false, 'error' => '无效的 API KEY']);
         }
-        $response = Http::withToken($apiKey)->timeout(15)
-            ->get(config('openai.base_uri') . '/dashboard/billing/credit_grants');
-        if ($response->failed()) {
-            return response()->json(['valid' => false, 'error' => '无效的 API KEY']);
-        }
+//        $response = Http::withToken($apiKey)->timeout(15)
+//            ->get(config('openai.base_uri') . '/dashboard/billing/credit_grants');
+//        if ($response->failed()) {
+//            return response()->json(['valid' => false, 'error' => '无效的 API KEY']);
+//        }
         return response()->json(['valid' => true]);
     }
 
