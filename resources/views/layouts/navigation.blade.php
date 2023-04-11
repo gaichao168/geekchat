@@ -2,7 +2,7 @@
     <nav class="container mx-auto flex justify-between items-center">
         <div class="flex items-center justify-center space-x-2">
             <img src="https://image.gstatics.cn/icon/geekchat.png" alt="GeekChat" class="rounded-lg w-12 h-12">
-            <div class="font-semibold text-4xl sm:text-5xl dark:text-white">AI<span class="text-blue-500">Chat</span>
+            <div class="font-semibold text-4xl sm:text-5xl dark:text-white">WO<span class="text-blue-500">Chat</span>
             </div>
         </div>
         <nav class="flex space-x-4 justify-start items-center">

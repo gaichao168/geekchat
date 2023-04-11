@@ -14,7 +14,7 @@ const store = createStore({
             totalGranted: 0.00,
             totalUsed: 0.00,
             isAmount: false,
-            isNotice: true,
+            isNotice: false,
             officialAccount: {
                 isModal: false,
                 isValidErr: false,

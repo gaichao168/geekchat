@@ -558,7 +558,7 @@ Zeeno 是一款生活在手机键盘中的 AI 助手。你可以在不离开手�
                 </div>
             </div>
             <!-- Main modal -->
-            <div v-show="isNotice"
+            <div v-show="false"
                  class="fixed top-0 left-0 right-0 z-50 w-full md:p-4 p-1 overflow-x-hidden overflow-y-auto bg-gray-700 bg-opacity-50 min-h-screen md:inset-0 justify-center items-center flex">
                 <div class="relative w-full h-full max-w-xl md:h-auto mx-auto">
                     <!-- Modal content -->
