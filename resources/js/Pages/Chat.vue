@@ -295,7 +295,7 @@ const regenerate = () => {
                 坚持不易，请勿浪费！
             </div>
             <div class="flex justify-center">
-                <div class="block max-w-sm rounded-lg bg-white shadow-lg   mx-5">
+                <div class="block max-w-sm rounded-lg bg-white  mx-5">
                     <component is="style">
                         .googleads_responsive {
                             width: 300px;
@@ -329,7 +329,7 @@ const regenerate = () => {
                 </div>
             </div>
 
-            <div class="md:flex mx-2   md:items-center my-2 md:justify-center border rounded-md shadow-md ">
+            <div class="md:flex mx-2   md:items-center my-2 md:justify-center border rounded-md">
                 <div class="px-4 md:w-1/2 pb-4">
                     <h1 class="text-center md:text-4xl text-2xl">获取属于你的私人API Key</h1>
 
@@ -340,52 +340,52 @@ const regenerate = () => {
                            href="https://faka.mianshijun.com" target="_blank">点击这里</a>
                     </span>
                 </div>
-                <div class=" p-2 m-4 border  rounded-md md:w-1/2 bg-gray-100 ">
+                <div class=" p-2 m-4   md:w-1/2">
                     <h1 class="text-center text-2xl font-bold ">加社群防失联</h1>
                     <div class=" flex justify-center overflow-hidden">
                         <img class="w-56 h-56 " src="images/wechat_group.jpg" alt="">
                     </div>
                 </div>
-            </div>
-
-            <div class="grid grid-cols-1">
-                <div class="py-4">
-                    <h1 class="text-center md:text-4xl text-2xl px-4">输入 API Key 查询使用额度</h1>
-
-                    <form @submit.prevent="getAmount" class="flex space-x-2 items-center justify-center mt-4 pb-4 ">
-                        <input type="text" name="amountKey" v-model="amount.amountKye" required
-                               class="border rounded-md w-1/2" placeholder="请输入你的API Key">
-                        <button class="block bg-blue-500 rounded-md py-2 px-4 hover:bg-blue-800 hover:text-white"
-                                title="查询余额" type="submit" :disabled="isTyping">查询
-                        </button>
-                    </form>
-
-                    <div class="pt-2 px-2 border w-1/2 mx-auto rounded-md bg-gray-100" v-show="isAmount">
-
-                        <div class="flex justify-start py-1">总额：<span
-                            class="text-gray-600 px-2">${{ totalGranted }}</span>
+                <div class="hidden md:block p-2 m-4 ">
+                    <h1 class="text-center text-2xl font-bold pb-2">赞助</h1>
+                    <div class="flex space-x-2 mt-4 justify-center items-center">
+                        <div class="w-48 h-48 border rounded-md shadow-md overflow-hidden">
+                            <img src="images/wechat_pay_code.png" alt="">
                         </div>
-                        <div class="flex justify-start py-1">已用：<span
-                            class="text-gray-600 px-2">${{ totalUsed }}</span>
-                        </div>
-                        <div class=" flex justify-start py-1">剩余：<span
-                            class="text-gray-600 px-2">${{ totalAvailable }}</span>
+                        <div class="w-48  h-48 border rounded-md shadow-md overflow-hidden">
+                            <img src="images/alipay_code.png" alt="">
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="hidden md:block w-1/2 py-2 mx-auto">
-                <h1 class="text-center text-4xl font-bold pb-2">感谢赞助</h1>
-                <span class="block text-sm text-center text-gray-400">坚持不易，感谢支持</span>
-                <div class="flex space-x-2 mt-4 justify-center items-center">
-                    <div class="w-48 h-48 border rounded-md shadow-md overflow-hidden">
-                        <img src="images/wechat_pay_code.png" alt="">
-                    </div>
-                    <div class="w-48  h-48 border rounded-md shadow-md overflow-hidden">
-                        <img src="images/alipay_code.png" alt="">
-                    </div>
-                </div>
-            </div>
+
+<!--            <div class="grid grid-cols-1">-->
+<!--                <div class="py-4">-->
+<!--                    <h1 class="text-center md:text-4xl text-2xl px-4">输入 API Key 查询使用额度</h1>-->
+
+<!--                    <form @submit.prevent="getAmount" class="flex space-x-2 items-center justify-center mt-4 pb-4 ">-->
+<!--                        <input type="text" name="amountKey" v-model="amount.amountKye" required-->
+<!--                               class="border rounded-md w-1/2" placeholder="请输入你的API Key">-->
+<!--                        <button class="block bg-blue-500 rounded-md py-2 px-4 hover:bg-blue-800 hover:text-white"-->
+<!--                                title="查询余额" type="submit" :disabled="isTyping">查询-->
+<!--                        </button>-->
+<!--                    </form>-->
+
+<!--                    <div class="pt-2 px-2 border w-1/2 mx-auto rounded-md bg-gray-100" v-show="isAmount">-->
+
+<!--                        <div class="flex justify-start py-1">总额：<span-->
+<!--                            class="text-gray-600 px-2">${{ totalGranted }}</span>-->
+<!--                        </div>-->
+<!--                        <div class="flex justify-start py-1">已用：<span-->
+<!--                            class="text-gray-600 px-2">${{ totalUsed }}</span>-->
+<!--                        </div>-->
+<!--                        <div class=" flex justify-start py-1">剩余：<span-->
+<!--                            class="text-gray-600 px-2">${{ totalAvailable }}</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
             <div class="py-8">
                 <h1 class="text-4xl text-center font-bold">正经聊天指南</h1>
                 <div class="grid gap-2 mt-4">
