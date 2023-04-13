@@ -42,7 +42,7 @@ class RouteServiceProvider extends ServiceProvider
     protected function configureRateLimiting(): void
     {
         RateLimiter::for('api', function (Request $request) {
-            return Limit::perDay(500)->by($request->user()?->id ?: $request->ip());
+            return Limit::perDay(2000)->by($request->user()?->id ?: $request->ip());
         });
         RateLimiter::for('chat', function (Request $request) {
             return $request->input('api_key')
