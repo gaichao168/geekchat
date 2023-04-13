@@ -46,7 +46,7 @@ class WeChatController extends Controller
             //获取微信用户信息
             $openid = $msg['FromUserName'];
             $str = $msg['Content'];
-            if (strpos($str, "聊天") !== false  || strpos($str,"信息")) {
+            if (strpos($str, "聊天") !== false  || strpos($str,"信息") !== false) {
                 $user = WechatUser::firstOrCreate(['openid' => $openid]);
                 $startAt = now();
                 $endAt = now()->addDays(3);
