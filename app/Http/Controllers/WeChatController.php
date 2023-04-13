@@ -23,7 +23,7 @@ class WeChatController extends Controller
             $user->save();
             $number = sprintf('u-10000%d', $user->id);
 
-            return "感谢关注!\n你的会员编号:$number\n1.验证码：请直接发送！\n2.体验聊天：请发送’聊天‘\n3.加群：请发送’加群‘\n4.续费：请发送’续费‘\n特别提示：记得查看公众号历史文章教程哦~";
+            return "感谢关注!\n你的会员编号:$number\n1.验证码：请发送提示的’验证码‘！\n2.体验聊天：请发送’聊天‘\n3.加群：请发送’加群‘\n4.续费：请发送’续费‘\n特别提示：记得查看公众号历史文章教程哦~";
         });
 
         $server->addEventListener('unsubscribe', function ($message) {
@@ -49,14 +49,14 @@ class WeChatController extends Controller
             if (strpos($str, "聊天") !== false) {
                 $user = WechatUser::firstOrCreate(['openid' => $openid]);
                 $startAt = now();
-                $endAt = now()->addDays(7);
+                $endAt = now()->addDays(3);
                 $gptKey = UserGptKey::firstOrCreate(['wechat_id' => $user->id], [
                     'key' => 'wo-' . md5(\Str::random(42) . time()),
                     'start_at' => $startAt,
                     'end_at' => $endAt,
                 ]);
 
-                return sprintf("领取成功！\n你的身份口令是：%s\n有效时间：%s--%s\n\n使用体验地址：https://gpt.wobcw.com", $gptKey->key,$startAt->toDateTimeString(),$endAt->toDateTimeString());
+                return sprintf("领取成功！\n你的身份口令是：%s\n有效时间：%s--%s\n\n使用地址：https://gpt.wobcw.com", $gptKey->key,$startAt->toDateTimeString(),$endAt->toDateTimeString());
             } else if (strpos($str, "群") !== false) {
 
                 return [
