@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\UserGptKey;
 use App\Models\WechatUser;
 use Cache;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Overtrue\LaravelWeChat\EasyWeChat;
 
@@ -56,7 +57,7 @@ class WeChatController extends Controller
                     'end_at' => $endAt,
                 ]);
                 $number = sprintf('u-10000%d', $user->id);
-                $hours = $gptKey->end_at->diffInHours($gptKey->start_at);
+                $hours = Carbon::parse($gptKey->end_at)->diffInHours(Carbon::parse($gptKey->start_at));
                 $surplusAt = 0;
                 if ($hours >0){
                     $surplusAt = round($hours/24,1);
