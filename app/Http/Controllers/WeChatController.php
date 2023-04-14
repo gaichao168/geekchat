@@ -62,7 +62,7 @@ class WeChatController extends Controller
                 if ($hours >0){
                     $surplusAt = round($hours/24,1);
                 }
-                return sprintf("你好！\n你的会员编号:%s\n你的身份口令是：%s\n剩余天数：%d 天\n\n使用地址：https://gpt.wobcw.com",$number, $gptKey->key,$surplusAt);
+                return sprintf("你好！\n你的会员编号:%s\n你的身份口令是：%s\n剩余天数：%f 天\n\n使用地址：https://gpt.wobcw.com",$number, $gptKey->key,$surplusAt);
             }else if (strpos($str, "群") !== false) {
 
                 return [
