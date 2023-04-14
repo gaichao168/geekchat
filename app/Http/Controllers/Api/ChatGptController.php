@@ -25,6 +25,6 @@ class ChatGptController extends Controller
             return response()->json(['msg'=>'success','verify_res'=>false]);
         }
 
-        return  response()->json(['msg'=>'success','verify_res'=>false]);
+        return  response()->json(['msg'=>'success','verify_res'=>true]);
     }
 }
