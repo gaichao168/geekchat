@@ -7,6 +7,7 @@
         </div>
         <nav class="flex space-x-4 justify-start items-center">
             <a href="/" class="dark:text-white text-black py-3 px-4 hover:text-teal-500 hover:bg-gray-500">首页</a>
+            <a href="https://prompting.wobcw.com" title="学习AI提示" target="_blank" class="dark:text-white text-black py-3 px-4 hover:text-teal-500 hover:bg-gray-500">学习AI提示</a>
             <a href="/shares" title="知识科普" class="dark:text-white text-black py-3 px-4 hover:text-teal-500 hover:bg-gray-500">知识科普</a>
             <a href="/" class="dark:text-white text-black py-3 px-4 hover:text-teal-500 hover:bg-gray-500">联系我们</a>
         </nav>

@@ -343,17 +343,17 @@ const regenerate = () => {
                 <div class=" p-2 m-4   md:w-1/2">
                     <h1 class="text-center text-2xl font-bold ">加社群防失联</h1>
                     <div class=" flex justify-center overflow-hidden">
-                        <img class="w-56 h-56 " src="images/wechat_group.jpg" alt="">
+                        <img class="w-56 h-56 " src="/images/wechat_group.jpg" alt="">
                     </div>
                 </div>
                 <div class="hidden md:block p-2 m-4 ">
                     <h1 class="text-center text-2xl font-bold pb-2">赞助</h1>
                     <div class="flex space-x-2 mt-4 justify-center items-center">
                         <div class="w-48 h-48 border rounded-md shadow-md overflow-hidden">
-                            <img src="images/wechat_pay_code.png" alt="">
+                            <img src="/images/wechat_pay_code.png" alt="">
                         </div>
                         <div class="w-48  h-48 border rounded-md shadow-md overflow-hidden">
-                            <img src="images/alipay_code.png" alt="">
+                            <img src="/images/alipay_code.png" alt="">
                         </div>
                     </div>
                 </div>
@@ -575,7 +575,7 @@ Zeeno 是一款生活在手机键盘中的 AI 助手。你可以在不离开手�
                                 <span class="font-bold">紧急通知</span>：从3.30号开始官方现在处理账号，服务不是很稳定，加入社群，谨防失联！
                             </p>
                             <div class=" flex justify-center  overflow-hidden">
-                                <img class="w-56 h-56 " src="images/wechat_group.jpg" alt="">
+                                <img class="w-56 h-56 " src="/images/wechat_group.jpg" alt="">
                             </div>
                         </div>
                         <!-- Modal header -->
