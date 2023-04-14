@@ -50,7 +50,7 @@ class WeChatController extends Controller
             if (strpos($str, "聊天") !== false  || strpos($str,"信息") !== false) {
                 $user = WechatUser::firstOrCreate(['openid' => $openid]);
                 $startAt = now();
-                $endAt = now()->addDays(3);
+                $endAt = now()->addDays(1);
                 $gptKey = UserGptKey::firstOrCreate(['wechat_id' => $user->id], [
                     'key' => 'wo-' . md5(\Str::random(42) . time()),
                     'start_at' => $startAt,
