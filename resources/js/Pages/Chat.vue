@@ -169,6 +169,12 @@ const regenerate = () => {
                                 </div>
                             </div>
                         </div>
+                        <div class="text-center my-4   font-bold sm:text-xl my-2 sm:my-5">如果回答不是你想要的
+                            <span class="text-teal-400 hover:text-teal-500">
+                                <a
+                                    href="https://prompting.wobcw.com" target="_blank">请点击这里学习提问技巧</a>
+                            </span>
+                        </div>
                     </div>
                 </div>
                 <div class="px-4 rounded-lg mb-4" v-for="(message, index) in messages" :key="index">

@@ -24,7 +24,7 @@ class WeChatController extends Controller
             $user->save();
             $number = sprintf('u-10000%d', $user->id);
 
-            return "感谢关注!\n你的会员编号:$number\n1.验证码：请发送提示的’验证码‘！\n2.体验聊天：请发送’聊天‘\n3.加群：请发送’加群‘\n4.续费：请发送’续费‘\n5.个人信息：请发送’信息‘\n特别提示：记得查看公众号历史文章教程哦~";
+            return "感谢关注!\n你的会员编号:$number\n1.验证请发送提示的：验证码\n2.体验收费系统请发送：聊天\n3.加群请发送：加群\n4.续费请发送：续费\n5.个人信息请发送：信息\n6.免费系统：https://chat.wobcw.com\n7.收费系统：https://gpt.wobcw.com\n特别提示：记得查看公众号历史文章教程哦~";
         });
 
         $server->addEventListener('unsubscribe', function ($message) {
