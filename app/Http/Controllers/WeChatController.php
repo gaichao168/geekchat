@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\UserGptKey;
 use App\Models\WechatUser;
 use Cache;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Overtrue\LaravelWeChat\EasyWeChat;
 
@@ -23,7 +24,7 @@ class WeChatController extends Controller
             $user->save();
             $number = sprintf('u-10000%d', $user->id);
 
-            return "感谢关注!\n你的会员编号:$number\n1.验证码：请直接发送！\n2.体验聊天：请发送’聊天‘\n3.加群：请发送’加群‘\n4.续费：请发送’续费‘\n";
+            return "感谢关注!\n你的会员编号:$number\n1.验证请发送提示的：验证码\n2.体验收费系统请发送：聊天\n3.加群请发送：加群\n4.续费请发送：续费\n5.个人信息请发送：信息\n6.免费系统：https://chat.wobcw.com\n7.收费系统：https://gpt.wobcw.com\n特别提示：记得查看公众号历史文章教程哦~";
         });
 
         $server->addEventListener('unsubscribe', function ($message) {
@@ -46,18 +47,23 @@ class WeChatController extends Controller
             //获取微信用户信息
             $openid = $msg['FromUserName'];
             $str = $msg['Content'];
-            if (strpos($str, "聊天") !== false) {
+            if (strpos($str, "聊天") !== false  || strpos($str,"信息") !== false) {
                 $user = WechatUser::firstOrCreate(['openid' => $openid]);
                 $startAt = now();
-                $endAt = now()->addDays(7);
+                $endAt = now()->addDays(1);
                 $gptKey = UserGptKey::firstOrCreate(['wechat_id' => $user->id], [
                     'key' => 'wo-' . md5(\Str::random(42) . time()),
                     'start_at' => $startAt,
                     'end_at' => $endAt,
                 ]);
-
-                return sprintf("领取成功！\n你的身份口令是：%s\n有效时间：%s--%s\n\n体验地址：https://gpt.wobcw.com", $gptKey->key,$startAt->toDateTimeString(),$endAt->toDateTimeString());
-            } else if (strpos($str, "群") !== false) {
+                $number = sprintf('u-10000%d', $user->id);
+                $hours = Carbon::parse($gptKey->end_at)->diffInHours(now());
+                $surplusAt = 0;
+                if ($hours >0){
+                    $surplusAt = round($hours/24,1);
+                }
+                return sprintf("你好！\n你的会员编号:%s\n你的身份口令是：%s\n剩余天数：%.1f 天\n\n使用地址：https://gpt.wobcw.com",$number, $gptKey->key,$surplusAt);
+            }else if (strpos($str, "群") !== false) {
 
                 return [
                     'MsgType' => 'image',
