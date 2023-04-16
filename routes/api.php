@@ -18,3 +18,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::post('/verify',[\App\Http\Controllers\Api\ChatGptController::class,'verify']);
+
+
+require __DIR__.'/admin.php';
