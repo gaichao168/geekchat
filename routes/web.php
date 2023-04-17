@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 //微信公众号
 Route::any('/wechat',[WeChatController::class,'serve'])->name('wechat');
-Route::any('/v1/valid_user_key',[ValidKeyController::class,'validKey'])->name('wechat');
+Route::any('/v1/valid_user_key',[ValidKeyController::class,'validKey']);
 
 Route::get('/', ChatController::class . '@index')->name('home');
 Route::get('/messages', ChatController::class . '@messages')->name('messages');
