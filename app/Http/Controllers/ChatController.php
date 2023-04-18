@@ -80,7 +80,7 @@ class ChatController extends Controller
             Cache::set($code, $key, 300);
             $isModal = true;
         }
-        return response()->json(['chat_id' => $chatId, 'message' => $userMessage, 'isModal' => false, 'code' => $code]);
+        return response()->json(['chat_id' => $chatId, 'message' => $userMessage, 'isModal' => $isModal, 'code' => $code]);
     }
 
     /**
