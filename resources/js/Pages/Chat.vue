@@ -581,12 +581,17 @@ Zeeno 是一款生活在手机键盘中的 AI 助手。你可以在不离开手�
                         </div>
                         <!-- Modal body -->
                         <div class="px-4 space-y-2  border-b border-gray-200">
-                            <p class="indent-4 md:text-xl text-sm leading-relaxed">
-                                为了维护互联网安全和健康发展，我们郑重提醒您:<span class="text-red-600">任何用户都不允许生产、发布、传播任何违法、违规内容</span>。
-                            </p>
-                            <p class="indent-4 md:text-xl text-sm leading-relaxed">
-                                一旦发现用户发布、输出、传播涉及国家法律法规禁止的涉及<span class="text-red-600">政治、色情、暴力、恐怖主义、谣言</span> 等相关内容，<span class="text-red-600">只要发现一起</span>，将立即采取严厉措施，<span class="text-red-600">记录用户IP地址</span>并永久封禁。同时，我们会配合有关部门<span class="text-red-600">进行调查和报警处理</span>，保障网络信息安全和秩序良好。我们呼吁广大用户自觉遵守国家法律法规和互联网管理相关规定，并感谢您对我们的支持和理解!期待与您一起共建绿色、健康、和谐的网络环境!
-                            </p>
+                                                        <p class="indent-4 md:text-xl text-sm leading-relaxed">
+                                                            为了维护互联网安全和健康发展，我们郑重提醒您:<span class="text-red-600">任何用户都不允许生产、发布、传播任何违法、违规内容</span>。我们呼吁广大用户自觉遵守国家法律法规和互联网管理相关规定，并感谢您对我们的支持和理解!<span class="text-green-600">
+                                                            期待与您一起共建绿色、健康、和谐的网络环境!
+                                                        </span>
+                                                        </p>
+                            <!--                            <p class="indent-4 md:text-xl text-sm leading-relaxed">-->
+                            <!--                                一旦发现用户发布、输出、传播涉及国家法律法规禁止的涉及<span class="text-red-600">政治、色情、暴力、恐怖主义、谣言</span> 等相关内容，<span class="text-red-600">只要发现一起</span>，将立即采取严厉措施，<span class="text-red-600">记录用户IP地址</span>并永久封禁。同时，我们会配合有关部门<span class="text-red-600">进行调查和报警处理</span>，保障网络信息安全和秩序良好。我们呼吁广大用户自觉遵守国家法律法规和互联网管理相关规定，并感谢您对我们的支持和理解!期待与您一起共建绿色、健康、和谐的网络环境!-->
+                            <!--                            </p>-->
+<!--                            <p class="indent-4 md:text-xl text-sm my-4 leading-relaxed">-->
+<!--                                系统维护中，恢复时间请在群内等通知~-->
+<!--                            </p>-->
                         </div>
                         <!-- Modal header -->
                         <!-- Modal body -->
