@@ -90,7 +90,10 @@ const store = createStore({
                 commit('deleteMessage');
             }
             ChatAPI.chatMessage(message, regen).then(response => {
-                if (response.status === 429) {
+                if (response.status === 401){
+                    commit('addMessage', {'role': 'assistant', 'content': '请规范你的言行,谢谢！'})
+                    throw new Error('请规范你的言行,谢谢！');
+                }else if (response.status === 429) {
                     commit('addMessage', {'role': 'assistant', 'content': '请求过于频繁，请稍后再试'})
                     throw new Error('请求过于频繁，请稍后再试');  // 抛出异常，中断后续操作
                 } else if (response.status >= 400) {
@@ -145,7 +148,10 @@ const store = createStore({
                 commit('deleteMessage');
             }
             ChatAPI.translateMessage(message, regen).then(response => {
-                if (response.status === 429) {
+                if (response.status === 401){
+                    commit('addMessage', {'role': 'assistant', 'content': '请规范你的言行,谢谢！'})
+                    throw new Error('请规范你的言行,谢谢！');
+                }else if (response.status === 429) {
                     commit('addMessage', {'role': 'assistant', 'content': '请求过于频繁，请稍后再试'})
                     throw new Error('请求过于频繁，请稍后再试');  // 抛出异常，中断后续操作
                 } else if (response.status >= 400) {
@@ -258,7 +264,10 @@ const store = createStore({
                 commit('toggleTyping')
             }).catch(error => {
                 commit('deleteMessage')
-                if (error.response.status === 429) {
+                if (error.response.status === 401){
+                    commit('addMessage', {'role': 'assistant', 'content': '请规范你的言行,谢谢！'})
+                    throw new Error('请规范你的言行,谢谢！');
+                }else if (error.response.status === 429) {
                     commit('addMessage', {'role': 'assistant', 'content': '请求过于频繁，请稍后再试'});
                 } else {
                     commit('addMessage', {'role': 'assistant', 'content': '请求处理失败，请重试'});
