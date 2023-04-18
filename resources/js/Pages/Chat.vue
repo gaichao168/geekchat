@@ -138,7 +138,10 @@ const regenerate = () => {
                 <div class="p-3 sm:p-5 flex items-center justify-center">
                     <div>
 
-                        <div class="text-center my-4 font-light text-base sm:text-xl my-2 sm:my-5">支持文字、翻译、画图的聊天机器人
+                        <div class="text-center font-bold text-red-600 text-base sm:text-xl  ">
+                            仅供大家交流学习使用，请用于查找资料，不要做任何违法行为，出现一切问题概不负责。
+                        </div>
+                        <div class="text-center my-4 font-light text-base sm:text-xl sm:my-5">支持文字、翻译、画图的聊天机器人
                         </div>
                         <div>
                             <div class="text-sm text-center">
@@ -304,22 +307,22 @@ const regenerate = () => {
                 <div class="block max-w-sm rounded-lg bg-white  mx-5">
                     <component is="style">
                         .googleads_responsive {
-                            width: 300px;
-                            height: 250px;
+                        width: 300px;
+                        height: 250px;
                         }
 
                         @media(min-width: 500px) {
-                            .googleads_responsive {
-                                width: 300px;
-                                height: 250px;
-                            }
+                        .googleads_responsive {
+                        width: 300px;
+                        height: 250px;
+                        }
                         }
 
                         @media(min-width: 800px) {
-                            .googleads_responsive {
-                                width: 336px;
-                                height: 280px;
-                            }
+                        .googleads_responsive {
+                        width: 336px;
+                        height: 280px;
+                        }
                         }
                     </component>
                     <!-- chat-web -->
@@ -365,32 +368,32 @@ const regenerate = () => {
                 </div>
             </div>
 
-<!--            <div class="grid grid-cols-1">-->
-<!--                <div class="py-4">-->
-<!--                    <h1 class="text-center md:text-4xl text-2xl px-4">输入 API Key 查询使用额度</h1>-->
+            <!--            <div class="grid grid-cols-1">-->
+            <!--                <div class="py-4">-->
+            <!--                    <h1 class="text-center md:text-4xl text-2xl px-4">输入 API Key 查询使用额度</h1>-->
 
-<!--                    <form @submit.prevent="getAmount" class="flex space-x-2 items-center justify-center mt-4 pb-4 ">-->
-<!--                        <input type="text" name="amountKey" v-model="amount.amountKye" required-->
-<!--                               class="border rounded-md w-1/2" placeholder="请输入你的API Key">-->
-<!--                        <button class="block bg-blue-500 rounded-md py-2 px-4 hover:bg-blue-800 hover:text-white"-->
-<!--                                title="查询余额" type="submit" :disabled="isTyping">查询-->
-<!--                        </button>-->
-<!--                    </form>-->
+            <!--                    <form @submit.prevent="getAmount" class="flex space-x-2 items-center justify-center mt-4 pb-4 ">-->
+            <!--                        <input type="text" name="amountKey" v-model="amount.amountKye" required-->
+            <!--                               class="border rounded-md w-1/2" placeholder="请输入你的API Key">-->
+            <!--                        <button class="block bg-blue-500 rounded-md py-2 px-4 hover:bg-blue-800 hover:text-white"-->
+            <!--                                title="查询余额" type="submit" :disabled="isTyping">查询-->
+            <!--                        </button>-->
+            <!--                    </form>-->
 
-<!--                    <div class="pt-2 px-2 border w-1/2 mx-auto rounded-md bg-gray-100" v-show="isAmount">-->
+            <!--                    <div class="pt-2 px-2 border w-1/2 mx-auto rounded-md bg-gray-100" v-show="isAmount">-->
 
-<!--                        <div class="flex justify-start py-1">总额：<span-->
-<!--                            class="text-gray-600 px-2">${{ totalGranted }}</span>-->
-<!--                        </div>-->
-<!--                        <div class="flex justify-start py-1">已用：<span-->
-<!--                            class="text-gray-600 px-2">${{ totalUsed }}</span>-->
-<!--                        </div>-->
-<!--                        <div class=" flex justify-start py-1">剩余：<span-->
-<!--                            class="text-gray-600 px-2">${{ totalAvailable }}</span>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
+            <!--                        <div class="flex justify-start py-1">总额：<span-->
+            <!--                            class="text-gray-600 px-2">${{ totalGranted }}</span>-->
+            <!--                        </div>-->
+            <!--                        <div class="flex justify-start py-1">已用：<span-->
+            <!--                            class="text-gray-600 px-2">${{ totalUsed }}</span>-->
+            <!--                        </div>-->
+            <!--                        <div class=" flex justify-start py-1">剩余：<span-->
+            <!--                            class="text-gray-600 px-2">${{ totalAvailable }}</span>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </div>-->
 
             <div class="py-8">
                 <h1 class="text-4xl text-center font-bold">正经聊天指南</h1>
@@ -570,44 +573,36 @@ Zeeno 是一款生活在手机键盘中的 AI 助手。你可以在不离开手�
                     <!-- Modal content -->
                     <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                         <!-- Modal header -->
-                        <div class="flex items-center justify-center md:p-4 py-1 border-b rounded-t dark:border-gray-600">
+                        <div
+                            class="flex items-center justify-center md:p-4 py-1 border-b rounded-t dark:border-gray-600">
                             <h3 class="text-sm  md:text-2xl font-bold text-red-600 dark:text-white">
-                                公告
+                                严重声明
                             </h3>
                         </div>
                         <!-- Modal body -->
                         <div class="px-4 space-y-2  border-b border-gray-200">
-                            <p class="md:text-base text-sm leading-relaxed text-red-600">
-                                <span class="font-bold">紧急通知</span>：从3.30号开始官方现在处理账号，服务不是很稳定，加入社群，谨防失联！
+                            <p class="indent-4 md:text-xl text-sm leading-relaxed">
+                                为了维护互联网安全和健康发展，我们郑重提醒您:<span class="text-red-600">任何用户都不允许生产、发布、传播任何违法、违规内容</span>。
                             </p>
-                            <div class=" flex justify-center  overflow-hidden">
+                            <p class="indent-4 md:text-xl text-sm leading-relaxed">
+                                一旦发现用户发布、输出、传播涉及国家法律法规禁止的涉及<span class="text-red-600">政治、色情、暴力、恐怖主义、谣言</span> 等相关内容，<span class="text-red-600">只要发现一起</span>，将立即采取严厉措施，<span class="text-red-600">记录用户IP地址</span>并永久封禁。同时，我们会配合有关部门<span class="text-red-600">进行调查和报警处理</span>，保障网络信息安全和秩序良好。我们呼吁广大用户自觉遵守国家法律法规和互联网管理相关规定，并感谢您对我们的支持和理解!期待与您一起共建绿色、健康、和谐的网络环境!
+                            </p>
+                        </div>
+                        <!-- Modal header -->
+                        <!-- Modal body -->
+                        <div class="hidden sm:block">
+                            <span class="flex justify-center font-bold ">加入社群，谨防失联</span>
+                            <div class=" flex justify-center items-center  overflow-hidden">
                                 <img class="w-56 h-56 " src="/images/wechat_group.jpg" alt="">
                             </div>
                         </div>
-                        <!-- Modal header -->
-                        <div class="flex items-center justify-center md:py-4 py-1 border-b rounded-t dark:border-gray-600">
-                            <h3 class="text-sm  md:text-2xl font-bold text-red-600 dark:text-white">
-                                特别说明
-                            </h3>
-                        </div>
-                        <!-- Modal body -->
-                        <div class="p-2 space-y-2  md:space-y-6 md:p-6 border-b border-gray-200">
-                            <!--                            <p class="text-base leading-relaxed text-gray-700 dark:text-gray-600">-->
-                            <!--                                1.在使用过程中出现“<b>请求频率太高，请稍后再试</b>”，属于正常现象，毕竟本网站是属于<b>免费</b>使用，做了聊天频率限制，也可能没有<b>聊天额度</b>了,如果你有条件可以购买自己的API Key 使用，<b>专项通道，无频率限制</b>，<a-->
-                            <!--                                href="https://faka.mianshijun.com" class="underline hover:text-blue-600 text-red-600" target="_blank">点击这里购买</a>-->
-                            <!--                            </p>-->
-                            <p class="md:text-base text-sm leading-relaxed text-gray-700 dark:text-white">
-                                本站坚持<b>免费提供</b>服务，实属不易，对于你们是免费的，对于我而是收费的，请大家<b>认真对待，避免浪费</b>，费用计算：<a
-                                href="https://chat.wobcw.com/shares/2"
-                                class="underline hover:text-blue-600 text-red-600" target="_blank">点击这里</a>
-                            </p>
-                        </div>
+
                         <!-- Modal footer -->
                         <div
                             class="flex justify-end items-center md:p-6 p-2 space-x-2 rounded-b dark:border-gray-600">
                             <button @click="getNotice" type="button"
                                     class="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm md:px-5 px-2 py-1.5 md:py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                我已了解
+                                我知道了
                             </button>
                         </div>
                     </div>

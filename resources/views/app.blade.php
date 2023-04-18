@@ -56,8 +56,7 @@
         <div class="p-4 text-center text-neutral-700">
             WoChat 由
             <a href="https://wobcw.com" target="_blank" class="text-teal-400 dark:text-neutral-400">我的编程网</a>
-            开发维护，定制开发、合作咨询请<a href="{{asset('images/wechat_code.jpg')}}" target="_blank"
-                                           class="text-blue-300 dark:text-blue-500">点这里</a>。
+            问题反馈请<a href="{{asset('images/wechat_code.jpg')}}" target="_blank" class="text-blue-300 dark:text-blue-500">点这里</a>。
         </div>
     </div>
 
