@@ -171,7 +171,7 @@ class ChatController extends Controller
 //                }
 
             } else {
-                $respData .= $this->sensitiveService->filter($data);
+                $respData .= $data;
                 echo $data;
             }
             ob_flush();
