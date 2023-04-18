@@ -440,7 +440,7 @@ const regenerate = () => {
                         openchat
                        </span>
                         <span class="text-sm text-gray-400">
-                            penCat 是一个 OpenAI 和 ChatGPT 的原生客户端，提供比 Web 界面更流畅和更快速的聊天体验。支持 MacOS 和 iOS。
+                            penCat 是一个 OpenAI 和 GPT 的原生客户端，提供比 Web 界面更流畅和更快速的聊天体验。支持 MacOS 和 iOS。
                         </span>
                     </a>
                 </div>
@@ -473,10 +473,10 @@ Zeeno 是一款生活在手机键盘中的 AI 助手。你可以在不离开手�
                        <span class="flex text-xl font-bold">
                          <img class="h-6 w-6 rounded-lg bg-gray-50"
                               src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="">
-                           ChatGPT 微信
+                           GPT 微信
                        </span>
                         <span class="text-sm text-gray-400">
-                            基于ChatGPT的微信聊天机器人，通过 ChatGPT 接口生成对话内容，使用 itchat 实现微信消息的接收和自动回复。支持文本对话、规则定制化、多账号、图片生成、上下文记忆。
+                            基于GPT的微信聊天机器人，通过 GPT 接口生成对话内容，使用 itchat 实现微信消息的接收和自动回复。支持文本对话、规则定制化、多账号、图片生成、上下文记忆。
                         </span>
                     </a>
                 </div>
@@ -488,7 +488,7 @@ Zeeno 是一款生活在手机键盘中的 AI 助手。你可以在不离开手�
                            xiaogpt
                        </span>
                         <span class="text-sm text-gray-400">
-                           将小米的小爱同学和 ChatGPT 结合起来，实现了一个小爱同学的聊天机器人。
+                           将小米的小爱同学和 GPT 结合起来，实现了一个小爱同学的聊天机器人。
                         </span>
                     </a>
                 </div>
@@ -509,10 +509,10 @@ Zeeno 是一款生活在手机键盘中的 AI 助手。你可以在不离开手�
                        <span class="flex text-xl font-bold">
                            <img class="h-6 w-6 rounded-lg bg-gray-50" src="https://www.notion.so/images/favicon.ico"
                                 alt="">
-                           ChatGPT商务速成
+                           GPT商务速成
                        </span>
                         <span class="text-sm text-gray-400">
-                            在商务业务中使用 ChatGPT 来提高效率的方法技巧汇总，主要教你如何用 ChatGPT 变现。
+                            在商务业务中使用 GPT来提高效率的方法技巧汇总，主要教你如何用 GPT变现。
                         </span>
                     </a>
                 </div>
