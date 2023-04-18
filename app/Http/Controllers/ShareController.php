@@ -9,7 +9,7 @@ class ShareController extends Controller
 {
     public function index()
     {
-        $shares = Share::query()->latest()->get();
+        $shares = Share::query()->where('hide',0)->latest()->get();
 
         return view('shares.index',compact('shares'));
     }
