@@ -18,8 +18,8 @@ return new class extends Migration
             $table->unsignedDecimal('money',10,2)->default('0.00')->comment('金额');
             $table->unsignedInteger('vip_config_id')->comment('VIP配置');
             $table->string('remark')->nullable()->comment('备注');
-            $table->timestamp('start_at')->comment('生效时间');
-            $table->timestamp('end_at')->comment('结束时间');
+            $table->timestamp('start_time')->comment('生效时间');
+            $table->timestamp('end_time')->comment('结束时间');
             $table->timestamps();
         });
     }
