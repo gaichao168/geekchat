@@ -9,6 +9,10 @@ class UpVipConfig extends AdminBaseModel
 {
     protected $table = "up_vip_config";
 
+    protected $fillable = [
+        'type', 'title'
+    ];
+
     public static function getConfig(): array
     {
         $items = self::query()
