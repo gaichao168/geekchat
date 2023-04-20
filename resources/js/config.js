@@ -7,7 +7,7 @@ var qrcode = '';
 switch (process.env.NODE_ENV) {
     case 'development':
         base_url = 'http://chat.test';
-        qrcode = 'images/official_account.png';
+        qrcode = 'images/official_account.jpg';
         break;
     case 'production':
         base_url = 'https://chat.wobcw.com';

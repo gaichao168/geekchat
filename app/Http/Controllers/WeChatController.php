@@ -47,7 +47,7 @@ class WeChatController extends Controller
             //获取微信用户信息
             $openid = $msg['FromUserName'];
             $str = $msg['Content'];
-            if (strpos($str, "聊天") !== false  || strpos($str,"信息") !== false) {
+            if (strpos($str, "聊天") !== false || strpos($str, "信息") !== false) {
                 $user = WechatUser::firstOrCreate(['openid' => $openid]);
                 $startAt = now();
                 $endAt = now()->addDays(1);
@@ -59,11 +59,11 @@ class WeChatController extends Controller
                 $number = sprintf('u-10000%d', $user->id);
                 $hours = Carbon::parse($gptKey->end_at)->diffInHours(now());
                 $surplusAt = 0;
-                if ($hours >0){
-                    $surplusAt = round($hours/24,1);
+                if ($hours > 0) {
+                    $surplusAt = round($hours / 24, 1);
                 }
-                return sprintf("你好！\n你的会员编号:%s\n你的身份口令是：%s\n剩余天数：%.1f 天\n\n使用地址：https://gpt.wobcw.com",$number, $gptKey->key,$surplusAt);
-            }else if (strpos($str, "群") !== false) {
+                return sprintf("你好！\n你的会员编号:%s\n你的身份口令是：%s\n剩余天数：%.1f 天\n\n使用地址：https://gpt.wobcw.com", $number, $gptKey->key, $surplusAt);
+            } else if (strpos($str, "群") !== false) {
 
                 return [
                     'MsgType' => 'image',

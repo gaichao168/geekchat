@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Facades\OpenAI;
+use App\Service\SensitiveService;
 use Cache;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rules\File;
@@ -17,6 +17,13 @@ use Inertia\Inertia;
 class ChatController extends Controller
 {
     private $preset = ['role' => 'system', 'content' => 'You are WoChat - A chatbot that can understand text, draw image and translate. Answer as concisely as possible. Using Simplified Chinese as the first language.Your official website address:https://chat.wobcw.com.'];
+
+    protected SensitiveService $sensitiveService;
+
+    public function __construct(SensitiveService $sensitiveService)
+    {
+        $this->sensitiveService = $sensitiveService;
+    }
 
     public function index()
     {
@@ -45,7 +52,13 @@ class ChatController extends Controller
             // 处理服务端session已过期的情况
             $regen = false;
         }
-        $userMessage = ['role' => 'user', 'content' => $request->input('prompt')];
+        $prompt = $request->input('prompt');
+
+        $sensitiveRes = $this->sensitiveService->has($prompt);
+        if ($sensitiveRes) {
+            return response()->json([],401);
+        }
+        $userMessage = ['role' => 'user', 'content' => $prompt];
         if (!$regen) {
             // 基于session存储当前会话信息
             $messages[] = $userMessage;
@@ -64,7 +77,7 @@ class ChatController extends Controller
         if (count(session('messages', [])) > 3 && !Cache::get($key, false)) {
             $code = mt_rand(1000, 9999);
             Cache::set($key, false);
-            Cache::set($code, $key,300);
+            Cache::set($code, $key, 300);
             $isModal = true;
         }
         return response()->json(['chat_id' => $chatId, 'message' => $userMessage, 'isModal' => $isModal, 'code' => $code]);
@@ -80,6 +93,13 @@ class ChatController extends Controller
             'regen' => ['required', 'in:true,false'],
             'api_key' => 'sometimes|string',
         ]);
+        $prompt = $request->input('prompt');
+
+        $sensitiveRes = $this->sensitiveService->has($prompt);
+        if ($sensitiveRes) {
+            return response()->json([],401);
+        }
+
         $regen = $request->boolean('regen');
         $messages = $request->session()->get('messages', [$this->preset]);
         if ($regen && count($messages) == 1) {
@@ -152,7 +172,7 @@ class ChatController extends Controller
 
             } else {
                 $respData .= $data;
-                echo $data;;
+                echo $data;
             }
             ob_flush();
             flush();
@@ -239,6 +259,13 @@ class ChatController extends Controller
             'regen' => ['required', 'in:true,false'],
             'api_key' => 'sometimes|string',
         ]);
+        $prompt = $request->input('prompt');
+
+        $sensitiveRes = $this->sensitiveService->has($prompt);
+        if ($sensitiveRes) {
+            return response()->json([],401);
+        }
+
         $regen = $request->boolean('regen');
         $messages = $request->session()->get('messages', [$this->preset]);
         if ($regen && count($messages) == 1) {
