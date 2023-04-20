@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace App\Admin\Controllers;
 
@@ -28,15 +28,16 @@ class WeChatController extends AdminController
 
         $grid->model()->orderByDesc("id");
         $grid->column("id", "数据编号")->sortable()->modal("充值记录", function ($model) {
-            $comments = $model->history()->take(10)->get()->map(function ($comment) {
+            $comments = $model->history()->take(20)->orderByDesc("id")->get()->map(function ($comment) {
                 return $comment->only(['id', "vip_config_id", "times", "start_time", "end_time", 'money', 'created_at', "remark"]);
             });
-            return new Table(['数据编号', "充值类型", "充值时长", "生效开始时间", "到期结束时间", '充值金额', '充值时间', "充值备注"], $comments->toArray());
+            return new Table(['数据编号', "充值类型", "充值时长(次数)", "生效开始时间", "到期结束时间", '充值金额', '充值时间', "充值备注"], $comments->toArray());
         });
         $grid->column("openid", "微信openId");
         $grid->column("key.key", "微信聊天key");
         $grid->column("key.start_at", "生效时间");
         $grid->column("key.end_at", "结束时间");
+        $grid->column("key.numbers", "剩余次数");
         $grid->column("created_at", "创建时间");
         $grid->column('subscribe', "公众号状态")->display(function ($subscribe) {
             if ($subscribe == 1) {

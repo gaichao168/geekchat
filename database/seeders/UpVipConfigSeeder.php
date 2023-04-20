@@ -65,6 +65,13 @@ class UpVipConfigSeeder extends Seeder
                     'created_at' => $currentAt,
                     'updated_at' => $currentAt,
                 ],
+                [
+                    'id' => 8,
+                    'title' => '次数',
+                    'type' => 8,
+                    'created_at' => $currentAt,
+                    'updated_at' => $currentAt,
+                ],
             ]
         );
     }
