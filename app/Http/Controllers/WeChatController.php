@@ -8,6 +8,7 @@ use Cache;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Overtrue\LaravelWeChat\EasyWeChat;
+use Str;
 
 class WeChatController extends Controller
 {
@@ -22,9 +23,29 @@ class WeChatController extends Controller
             $user = WechatUser::firstOrCreate(['openid' => $openid]);
             $user->subscribe = 1;
             $user->save();
+            //为用户创建身份口令，并有一天体验时间
             $number = sprintf('u-10000%d', $user->id);
+            $startAt = now();
+            $endAt = now()->addDay();
+            $key = 'wo-' . md5(Str::random(42) . time());
+            UserGptKey::create([
+                'wechat_id' => $user->id,
+                'key' => $key,
+                'start_at' => $startAt,
+                'end_at' => $endAt,
+            ]);
 
-            return "感谢关注!\n你的会员编号:$number\n1.验证请发送提示的：验证码\n2.体验收费系统请发送：聊天\n3.加群请发送：加群\n4.续费请发送：续费\n5.个人信息请发送：信息\n6.免费系统：https://chat.wobcw.com\n7.收费系统：https://gpt.wobcw.com\n特别提示：记得查看公众号历史文章教程哦~";
+            return "感谢关注!\n
+            用户编号: $number\n
+            身份口令：$key\n
+            会员剩余天数：1 天\n
+            1.验证请发送提示的：验证码\n
+            2.查询信息请发送：信息\n
+            3.加群请发送：加群\n
+            4.续费请发送：续费\n
+            5.免费系统：https://chat.wobcw.com\n
+            6.会员系统：https://gpt.wobcw.com\n
+            友情提示：😀赠送！赠送！赠送你 1 天会员系统体验时间，快进入会员系统体验吧🤩！使用教程请查看公众号历史文章哦~";
         });
 
         $server->addEventListener('unsubscribe', function ($message) {
@@ -52,7 +73,7 @@ class WeChatController extends Controller
                 $startAt = now();
                 $endAt = now()->addDays(1);
                 $gptKey = UserGptKey::firstOrCreate(['wechat_id' => $user->id], [
-                    'key' => 'wo-' . md5(\Str::random(42) . time()),
+                    'key' => 'wo-' . md5(Str::random(42) . time()),
                     'start_at' => $startAt,
                     'end_at' => $endAt,
                 ]);
@@ -62,7 +83,7 @@ class WeChatController extends Controller
                 if ($hours > 0) {
                     $surplusAt = round($hours / 24, 1);
                 }
-                return sprintf("你好！\n你的会员编号:%s\n你的身份口令是：%s\n剩余天数：%.1f 天\n\n使用地址：https://gpt.wobcw.com", $number, $gptKey->key, $surplusAt);
+                return sprintf("你好！\n你的会员编号:%s\n你的身份口令是：%s\n剩余天数：%.1f 天\n会员系统地址：https://gpt.wobcw.com", $number, $gptKey->key, $surplusAt);
             } else if (strpos($str, "群") !== false) {
 
                 return [
