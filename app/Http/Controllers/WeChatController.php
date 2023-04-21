@@ -28,8 +28,7 @@ class WeChatController extends Controller
             $startAt = now();
             $endAt = now()->addDay();
             $key = 'wo-' . md5(Str::random(42) . time());
-            UserGptKey::create([
-                'wechat_id' => $user->id,
+            $gptKey = UserGptKey::firstOrCreate(['wechat_id' => $user->id], [
                 'key' => $key,
                 'start_at' => $startAt,
                 'end_at' => $endAt,
@@ -37,7 +36,7 @@ class WeChatController extends Controller
 
             return "感谢关注!\n
             用户编号: $number\n
-            身份口令：$key\n
+            身份口令：$gptKey->key\n
             会员剩余天数：1 天\n
             1.验证请发送提示的：验证码\n
             2.查询信息请发送：信息\n
