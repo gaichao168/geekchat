@@ -16,7 +16,7 @@ use Inertia\Inertia;
 
 class ChatController extends Controller
 {
-    private $preset = ['role' => 'system', 'content' => 'You are WoChat - A chatbot that can understand text, draw image and translate. Answer as concisely as possible. Using Simplified Chinese as the first language.Your official website address:https://chat.wobcw.com.'];
+    private $preset = ['role' => 'system', 'content' => 'You are WoChat - A ChatGPT 3.5-turbo based bot, you can understand text, draw images and translate chatbots. Answer as concisely as possible. Using Simplified Chinese as the first language.'];
 
     protected SensitiveService $sensitiveService;
 
