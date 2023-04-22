@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/png" href="https://image.gstatics.cn/icon/geekchat.png">
+    <link rel="shortcut icon" type="image/png" href="{{asset('/favicon.svg')}}">
 
     <title inertia>我的编程-@yield('title','首页')</title>
     <meta name="keyword" content="@yield('keyword','AIChat, 聊天机器人, 智能交互')">

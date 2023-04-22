@@ -127,11 +127,28 @@ const regenerate = () => {
             break
     }
 }
+const newLine = (event) => {
+    // 防止默认的回车键行为
+    if (event.shiftKey && event.keyCode === 13) {
+        if (form.prompt === null) {
+            return false;
+        }
+        form.prompt = form.prompt.replace(/(\n){2,}/g, '\n')
+    } else if (event.keyCode === 13) {
+
+        event.preventDefault();
+        const button = document.getElementById('submit-chat')
+        button.click();
+        return false;
+    }
+
+
+}
 
 </script>
 
 <template>
-    <Head title="Chat - 支持文字、语音、翻译、画图的聊天机器人"></Head>
+    <Head title="WoChat-ChatGpt3.5-turbo - 支持文字、翻译、画图的聊天机器人"></Head>
     <div>
         <div class="max-w-5xl mx-auto">
             <div>
@@ -201,7 +218,14 @@ const regenerate = () => {
                     </div>
                     <div v-else class="pl-12 relative response-block scroll-mt-32 min-h-[60px]" v-show="message">
                         <div class="absolute top-0 left-0">
-                            <img src="https://image.gstatics.cn/icon/geekchat.png" class="w-9 h-9 rounded-md flex-none">
+                            <!--                            <img src="https://image.gstatics.cn/icon/geekchat.png" class="w-9 h-9 rounded-md flex-none">-->
+                            <div
+                                class="flex items-center justify-center flex-shrink-0 h-9 w-9 overflow-hidden rounded-full basis-8 mr-2">
+                                <span class="text-[30px] dark:text-white"><svg xmlns="http://www.w3.org/2000/svg"
+                                                                               viewBox="0 0 32 32" aria-hidden="true"
+                                                                               width="1em" height="1em"><path
+                                    d="M29.71,13.09A8.09,8.09,0,0,0,20.34,2.68a8.08,8.08,0,0,0-13.7,2.9A8.08,8.08,0,0,0,2.3,18.9,8,8,0,0,0,3,25.45a8.08,8.08,0,0,0,8.69,3.87,8,8,0,0,0,6,2.68,8.09,8.09,0,0,0,7.7-5.61,8,8,0,0,0,5.33-3.86A8.09,8.09,0,0,0,29.71,13.09Zm-12,16.82a6,6,0,0,1-3.84-1.39l.19-.11,6.37-3.68a1,1,0,0,0,.53-.91v-9l2.69,1.56a.08.08,0,0,1,.05.07v7.44A6,6,0,0,1,17.68,29.91ZM4.8,24.41a6,6,0,0,1-.71-4l.19.11,6.37,3.68a1,1,0,0,0,1,0l7.79-4.49V22.8a.09.09,0,0,1,0,.08L13,26.6A6,6,0,0,1,4.8,24.41ZM3.12,10.53A6,6,0,0,1,6.28,7.9v7.57a1,1,0,0,0,.51.9l7.75,4.47L11.85,22.4a.14.14,0,0,1-.09,0L5.32,18.68a6,6,0,0,1-2.2-8.18Zm22.13,5.14-7.78-4.52L20.16,9.6a.08.08,0,0,1,.09,0l6.44,3.72a6,6,0,0,1-.9,10.81V16.56A1.06,1.06,0,0,0,25.25,15.67Zm2.68-4-.19-.12-6.36-3.7a1,1,0,0,0-1.05,0l-7.78,4.49V9.2a.09.09,0,0,1,0-.09L19,5.4a6,6,0,0,1,8.91,6.21ZM11.08,17.15,8.38,15.6a.14.14,0,0,1-.05-.08V8.1a6,6,0,0,1,9.84-4.61L18,3.6,11.61,7.28a1,1,0,0,0-.53.91ZM12.54,14,16,12l3.47,2v4L16,20l-3.47-2Z"
+                                    fill="currentColor"></path></svg></span></div>
                             <div class="my-1 flex items-center justify-center">
                                 <button>
                                     <svg stroke="currentColor"
@@ -252,17 +276,20 @@ const regenerate = () => {
                 <hr>
                 <div class="p-4 bg-white px-4">
                     <div class="pb-safe">
+
                         <form class="grid grid-cols-1 gap-2  mb-2"
                               @submit.prevent="chat">
-                            <textarea required id="chat-input-textbox" cols=""
+                            <textarea @keyup.shift.enter="newLine" @keydown.enter="newLine" required
+                                      id="chat-input-textbox" cols=""
                                       placeholder="输入你的问题/翻译内容/图片描述..." name="prompt"
                                       autocomplete="off" v-model="form.prompt"
                                       :style="{ height: (form.prompt && form.prompt.split('\n').length > 1) ? form.prompt.split('\n').length * 2 + 'rem' : '40px' }"
-                                      class="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:py-1.5 sm:text-sm sm:leading-6 resize-none"></textarea>
-                            <div class="flex space-x-2 justify-end">
-                                <button
-                                    :class="{ 'flex items-center justify-center px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-md text-sm md:text-base': true, 'opacity-25': isTyping }"
-                                    title="发送消息" type="submit" :disabled="isTyping">
+                                      class="block h-auto w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:py-1.5 sm:text-sm sm:leading-6 resize-none"></textarea>
+                            <div class="flex space-x-2 justify-end items-center">
+                                <span class="text-gray-500">换行：shift+回车</span>
+                                <button id="submit-chat"
+                                        :class="{ 'flex items-center justify-center px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-md text-sm md:text-base': true, 'opacity-25': isTyping }"
+                                        title="发送消息" type="submit" :disabled="isTyping">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                          stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -539,7 +566,7 @@ Zeeno 是一款生活在手机键盘中的 AI 助手。你可以在不离开手�
                         <!-- Modal body -->
                         <div class="pt-4  border-b border-gray-200">
                             <p class="text-base text-center leading-relaxed">
-                                <span class="block text-red-600">关注微信公众号，解锁无限服务</span>发送验证码:
+                                <span class="block text-red-600">关注微信公众号，解锁不限次数</span>发送验证码:
                                 <span class="text-2xl font-bold">{{ modalCode }}</span>
                             </p>
                             <p v-if="isValidErr"
@@ -581,15 +608,15 @@ Zeeno 是一款生活在手机键盘中的 AI 助手。你可以在不离开手�
                         </div>
                         <!-- Modal body -->
                         <div class="px-4 space-y-2  border-b border-gray-200">
-                                                        <p class="indent-4 md:text-xl text-sm leading-relaxed">
-                                                            为了维护互联网安全和健康发展，郑重提醒您:<span class="text-red-600">任何用户都不允许生产、发布、传播任何违法、违规内容</span>。请广大用户自觉遵守国家法律法规和互联网管理相关规定，并感谢您对我们的支持和理解!
-                                                        </p>
+                            <p class="indent-4 md:text-xl text-sm leading-relaxed">
+                                为了维护互联网安全和健康发展，郑重提醒您:<span class="text-red-600">任何用户都不允许生产、发布、传播任何违法、违规内容</span>。请广大用户自觉遵守国家法律法规和互联网管理相关规定，并感谢您对我们的支持和理解!
+                            </p>
 
                         </div>
                         <!-- Modal header -->
                         <!-- Modal body -->
                         <div class="">
-                            <span class="flex justify-center font-bold ">加入社群，谨防失联</span>
+                            <span class="flex justify-center font-bold ">加入社群，共同学习</span>
                             <div class=" flex justify-center items-center  overflow-hidden">
                                 <img class="w-56 h-56 " src="/images/wechat_group.jpg" alt="">
                             </div>
