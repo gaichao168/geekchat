@@ -130,6 +130,9 @@ const regenerate = () => {
 const newLine = (event) => {
     // 防止默认的回车键行为
     if (event.shiftKey && event.keyCode === 13) {
+        if (form.prompt === null) {
+            return false;
+        }
         form.prompt = form.prompt.replace(/(\n){2,}/g, '\n')
     } else if (event.keyCode === 13) {
 
