@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Admin\Controllers;
 
@@ -18,10 +18,13 @@ class WeChatController extends AdminController
         $grid = new Grid(new WeChat());
         $grid->filter(function ($filter) {
             $filter->disableIdFilter();
-            $filter->column(1 / 2, function ($filter) {
+            $filter->column(1 / 3, function ($filter) {
                 $filter->equal("subscribe", "关注公众号")->select(["未关注", "已关注"]);
             });
-            $filter->column(1 / 2, function ($filter) {
+            $filter->column(1 / 3, function ($filter) {
+                $filter->equal('key.key', '身份口令');
+            });
+            $filter->column(1 / 3, function ($filter) {
                 $filter->between('created_at', "注册时间")->datetime();
             });
         });
@@ -33,8 +36,8 @@ class WeChatController extends AdminController
             });
             return new Table(['数据编号', "充值类型", "充值时长(次数)", "生效开始时间", "到期结束时间", '充值金额', '充值时间', "充值备注"], $comments->toArray());
         });
-        $grid->column("openid", "微信openId");
-        $grid->column("key.key", "微信聊天key");
+        $grid->column("openid", "openid");
+        $grid->column("key.key", "身份口令");
         $grid->column("key.start_at", "生效时间");
         $grid->column("key.end_at", "结束时间");
         $grid->column("key.numbers", "剩余次数");
