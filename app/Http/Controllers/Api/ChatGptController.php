@@ -23,7 +23,7 @@ class ChatGptController extends Controller
 
         $currentAt = now();
         $cacheKey = sprintf("user:gpt:key:%s", $key);
-        $userKey = Cache::remember($cacheKey, 60, function () use ($key) {
+        $userKey = Cache::remember($cacheKey, 18000, function () use ($key) {
             return UserGptKey::select(['key', 'id', 'start_at', 'end_at', 'numbers'])
                 ->where('key', $key)
                 ->first();
@@ -42,7 +42,6 @@ class ChatGptController extends Controller
             return response()->json(['msg' => 'success', 'verify_res' => true]);
         }
         //判断时间
-        Log::info(sprintf('%b,%b',$currentAt->gt($userKey->satart_at),Carbon::parse($userKey->end_at)->gt($currentAt)));
         if ($currentAt->gt($userKey->start_at) && Carbon::parse($userKey->end_at)->gt($currentAt)) {
             return response()->json(['msg' => 'success', 'verify_res' => true]);
         }
