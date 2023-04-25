@@ -4,7 +4,11 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\UserGptKey;
+use Cache;
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Throwable;
 
 class ChatGptController extends Controller
@@ -18,26 +22,32 @@ class ChatGptController extends Controller
         $key = $request->get('key');
 
         $currentAt = now();
-//        $userKey = UserGptKey::where('key',$key)
-//            ->where('start_at','<',$currentAt)
-//            ->where('end_at','>=',$currentAt)
-//            ->first();
-        $userKey = UserGptKey::query()->where("key", "=", $key)->first(["numbers", "start_at", "end_at", "id"]);
+        $cacheKey = sprintf("user:gpt:key:%s", $key);
+        $userKey = Cache::remember($cacheKey, 60, function () use ($key) {
+            return UserGptKey::select(['key', 'id', 'start_at', 'end_at', 'numbers'])
+                ->where('key', $key)
+                ->first();
+        });
         if (empty($userKey)) {
+            Cache::delete($cacheKey);
             return response()->json(['msg' => 'success', 'verify_res' => false]);
         }
-        $userKey = $userKey->toArray();
-        if ($userKey["numbers"] > 0) {// 存在次数并且可用次数大于0，优先扣减次数
+
+        if ($userKey->numbers > 0) {// 存在次数并且可用次数大于0，优先扣减次数
             try {
-                UserGptKey::query()->where("id", "=", $userKey["id"])->decrement("number");
+                $userKey->decrement("numbers");
             } catch (Throwable $throwable) {
                 return response()->json(['msg' => 'success', 'verify_res' => false]);
             }
             return response()->json(['msg' => 'success', 'verify_res' => true]);
         }
-        if ((strtotime($userKey["end_at"]) >= strtotime(date("Y-m-d H:i:s")))) {// 不存在次数并且还在会员有效期内，则按照会员有效期进行处理
+        //判断时间
+        Log::info(sprintf('%b,%b',$currentAt->gt($userKey->satart_at),Carbon::parse($userKey->end_at)->gt($currentAt)));
+        if ($currentAt->gt($userKey->start_at) && Carbon::parse($userKey->end_at)->gt($currentAt)) {
             return response()->json(['msg' => 'success', 'verify_res' => true]);
         }
+        Cache::delete($cacheKey);
         return response()->json(['msg' => 'success', 'verify_res' => false]);
+
     }
 }
