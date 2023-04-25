@@ -5,8 +5,11 @@ namespace App\Admin\Controllers;
 
 use App\Admin\Actions\Post\Replicate;
 use App\Models\Admin\WeChat;
+use App\Models\WechatUser;
 use Encore\Admin\Controllers\AdminController;
+use Encore\Admin\Form;
 use Encore\Admin\Grid;
+use Encore\Admin\Show;
 use Encore\Admin\Widgets\Table;
 
 class WeChatController extends AdminController
@@ -37,6 +40,8 @@ class WeChatController extends AdminController
             return new Table(['数据编号', "充值类型", "充值时长(次数)", "生效开始时间", "到期结束时间", '充值金额', '充值时间', "充值备注"], $comments->toArray());
         });
         $grid->column("openid", "openid");
+        $grid->column("wechat_number", "微信号");
+        $grid->column("wechat_name", "微信昵称");
         $grid->column("key.key", "身份口令");
         $grid->column("key.start_at", "生效时间");
         $grid->column("key.end_at", "结束时间");
@@ -56,5 +61,45 @@ class WeChatController extends AdminController
         $grid->disableCreateButton();
 
         return $grid;
+    }
+
+    protected function detail($id)
+    {
+        $show = new Show(WechatUser::findOrFail($id));
+
+        $show->field('id', __('Id'));
+        $show->field('wechat_number', '微信号');
+        $show->field('wechat_name', '微信昵称');
+
+        return $show;
+    }
+
+    protected function form()
+    {
+        $form = new Form(new WechatUser());
+        $form->text('wechat_number', '微信号');
+        $form->text('wechat_name', '微信昵称');
+        $form->tools(function (Form\Tools $tools) {
+
+            // 去掉`删除`按钮
+            $tools->disableDelete();
+
+        });
+        $form->footer(function ($footer) {
+
+            // 去掉`重置`按钮
+            $footer->disableReset();
+
+            // 去掉`查看`checkbox
+            $footer->disableViewCheck();
+
+            // 去掉`继续编辑`checkbox
+            $footer->disableEditingCheck();
+
+            // 去掉`继续创建`checkbox
+            $footer->disableCreatingCheck();
+
+        });
+        return $form;
     }
 }

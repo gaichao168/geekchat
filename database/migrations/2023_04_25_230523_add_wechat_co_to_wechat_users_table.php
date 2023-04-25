@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('wechat_users', function (Blueprint $table) {
-            //
+            $table->string('wechat_number')->nullable()->comment('微信号');
+            $table->string('wechat_name')->nullable()->comment('微信昵称');
         });
     }
 
@@ -22,7 +23,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('wechat_users', function (Blueprint $table) {
-            //
+            $table->dropColumn('wechat_number');
+            $table->dropColumn('wechat_name');
         });
     }
 };

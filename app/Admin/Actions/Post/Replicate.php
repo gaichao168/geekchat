@@ -5,6 +5,7 @@ namespace App\Admin\Actions\Post;
 use App\Models\Admin\UpVipConfig;
 use App\Models\Admin\UpVipHistory;
 use App\Models\Admin\UserGptKeys;
+use App\Models\WechatUser;
 use Carbon\Carbon;
 use Encore\Admin\Actions\Response;
 use Encore\Admin\Actions\RowAction;
@@ -58,14 +59,28 @@ class Replicate extends RowAction
         $money = $request->post("money");
         $weChatId = $request->post("wechat_id");
         $remark = $request->post("remark", "");
+        $wechatNumber = $request->post('wechat_number');
+        $wechatName = $request->post('wechat_name');
+        $wechatUser = WechatUser::find($weChatId);
+        if (empty($wechatUser)) {
+            return $this->response()->error('充值失败');
+        }
+        if ($wechatName != $wechatUser->wechat_name || $wechatNumber != $wechatUser->wechat_number) {
+            $wechatUser->update(
+                [
+                    'wechat_number' => $wechatNumber,
+                    'wechat_name' => $wechatName,
+                ]
+            );
+        }
         $gptKey = UserGptKeys::query()->where("wechat_id", "=", $weChatId)->first(["id", "end_at", "start_at"]);
         if (empty($gptKey)) {
             return $this->response()->error('充值失败');
         }
         // vip原本的开始时间
-        $vipStartTime = Carbon::parse($gptKey->start_at);
-        if (Carbon::parse($gptKey->end_at)->gt(now()) && $times > 0) { // 会员未过期
-            $vipStartTime = Carbon::parse($gptKey->end_at);
+        $vipStartTime = Carbon::parse($gptKey->end_at);
+        if (Carbon::parse($gptKey->end_at)->lt(now()) && $times > 0) { // 会员未过期
+            $vipStartTime = now();
         }
         DB::beginTransaction();
         try {
@@ -74,7 +89,6 @@ class Replicate extends RowAction
             } else {
 
                 $gptKey->update([
-                    "start_at" => $vipStartTime,
                     "end_at" => $this->calculateEndAt($type, $times, $vipStartTime),
                 ]);
 
@@ -102,6 +116,8 @@ class Replicate extends RowAction
 
     public function form(): void
     {
+        $this->text('wechat_number', '微信号');
+        $this->text('wechat_name', '微信昵称');
         $this->select('type', '充值类型')->options(UpVipConfig::getConfig())->default(1)->rules('required')->help("选择按次数充值类型时，下列的充值时长表示可使用次数");
         $this->text('times', '数量')->default(1)->rules('required|integer|min:-10000')->help("值只能是整数（可以是负数）最小-10000");
         //$this->datetime("start_time", "开始时间")->help("该时间表示会员正式生效的时间，不勾选则默认会当前时间。");

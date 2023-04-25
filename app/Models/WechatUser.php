@@ -10,7 +10,7 @@ class WechatUser extends Model
     use HasFactory;
 
     protected $table = 'wechat_users';
-    protected $fillable = ['openid','subscribe'];
+    protected $fillable = ['openid','subscribe','wechat_number','wechat_name'];
 
     public function userGptKey()
     {
