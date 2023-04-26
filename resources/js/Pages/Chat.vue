@@ -330,43 +330,43 @@ const newLine = (event) => {
             <div class="text-center font-bold sm:text-3xl  text-red-600">
                 坚持不易，请勿浪费！
             </div>
-            <div class="flex justify-center">
-                <div class="block max-w-sm rounded-lg bg-white  mx-5">
-                    <component is="style">
-                        .googleads_responsive {
-                        width: 300px;
-                        height: 250px;
-                        }
+<!--            <div class="flex justify-center">-->
+<!--                <div class="block max-w-sm rounded-lg bg-white  mx-5">-->
+<!--                    <component is="style">-->
+<!--                        .googleads_responsive {-->
+<!--                        width: 300px;-->
+<!--                        height: 250px;-->
+<!--                        }-->
 
-                        @media(min-width: 500px) {
-                        .googleads_responsive {
-                        width: 300px;
-                        height: 250px;
-                        }
-                        }
+<!--                        @media(min-width: 500px) {-->
+<!--                        .googleads_responsive {-->
+<!--                        width: 300px;-->
+<!--                        height: 250px;-->
+<!--                        }-->
+<!--                        }-->
 
-                        @media(min-width: 800px) {
-                        .googleads_responsive {
-                        width: 336px;
-                        height: 280px;
-                        }
-                        }
-                    </component>
-                    <!-- chat-web -->
-                    <ins class="adsbygoogle googleads_responsive"
-                         style="display:block"
-                         data-ad-client="ca-pub-4193846562907716"
-                         data-ad-slot="8753144254"
-                         data-ad-format="auto"
-                         data-full-width-responsive="true"></ins>
-                    <component is="script">
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                    </component>
-                </div>
-            </div>
+<!--                        @media(min-width: 800px) {-->
+<!--                        .googleads_responsive {-->
+<!--                        width: 336px;-->
+<!--                        height: 280px;-->
+<!--                        }-->
+<!--                        }-->
+<!--                    </component>-->
+<!--                    &lt;!&ndash; chat-web &ndash;&gt;-->
+<!--                    <ins class="adsbygoogle googleads_responsive"-->
+<!--                         style="display:block"-->
+<!--                         data-ad-client="ca-pub-4193846562907716"-->
+<!--                         data-ad-slot="8753144254"-->
+<!--                         data-ad-format="auto"-->
+<!--                         data-full-width-responsive="true"></ins>-->
+<!--                    <component is="script">-->
+<!--                        (adsbygoogle = window.adsbygoogle || []).push({});-->
+<!--                    </component>-->
+<!--                </div>-->
+<!--            </div>-->
 
             <div class="md:flex mx-2   md:items-center my-2 md:justify-center border rounded-md">
-                <div class="px-4 md:w-1/2 pb-4">
+                <div class="p-4 md:w-1/2 pb-4 md:px-4">
                     <h1 class="text-center md:text-4xl text-2xl">获取属于你的私人API Key</h1>
 
                     <h3 class="text-center text-gray-400 pb-4 ">独立通道，数据安全</h3>
@@ -382,17 +382,17 @@ const newLine = (event) => {
                         <img class="w-56 h-56 " src="/images/wechat_group.jpg" alt="">
                     </div>
                 </div>
-                <div class="hidden md:block p-2 m-4 ">
-                    <h1 class="text-center text-2xl font-bold pb-2">赞助</h1>
-                    <div class="flex space-x-2 mt-4 justify-center items-center">
-                        <div class="w-48 h-48 border rounded-md shadow-md overflow-hidden">
-                            <img src="/images/wechat_pay_code.png" alt="">
-                        </div>
-                        <div class="w-48  h-48 border rounded-md shadow-md overflow-hidden">
-                            <img src="/images/alipay_code.png" alt="">
-                        </div>
-                    </div>
-                </div>
+<!--                <div class="hidden md:block p-2 m-4 ">-->
+<!--                    <h1 class="text-center text-2xl font-bold pb-2">赞助</h1>-->
+<!--                    <div class="flex space-x-2 mt-4 justify-center items-center">-->
+<!--                        <div class="w-48 h-48 border rounded-md shadow-md overflow-hidden">-->
+<!--                            <img src="/images/wechat_pay_code.png" alt="">-->
+<!--                        </div>-->
+<!--                        <div class="w-48  h-48 border rounded-md shadow-md overflow-hidden">-->
+<!--                            <img src="/images/alipay_code.png" alt="">-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
             </div>
 
             <!--            <div class="grid grid-cols-1">-->
