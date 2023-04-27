@@ -45,9 +45,8 @@ class RouteServiceProvider extends ServiceProvider
 //            return Limit::perDay(50)->by($request->user()?->id ?: $request->ip());
 //        });
         RateLimiter::for('chat', function (Request $request) {
-            return $request->input('api_key')
-                ? Limit::none()
-                : Limit::perDay(30)->by($request->user()?->id ?: $request->ip());
+
+            return $request->has('api_key') && $request->api_key != 'null' ? Limit::none() : Limit::perDay(30)->by($request->user()?->id ?: $request->ip());
 
         });
 //        RateLimiter::for('audio', function (Request $request) {
