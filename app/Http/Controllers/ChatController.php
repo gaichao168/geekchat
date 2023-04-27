@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Facades\OpenAI;
+use App\Models\UserGptKey;
 use App\Service\SensitiveService;
 use Cache;
+use Carbon\Carbon;
 use Exception;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Http\JsonResponse;
@@ -13,6 +16,7 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rules\File;
 use Inertia\Inertia;
+use Throwable;
 
 class ChatController extends Controller
 {
@@ -56,7 +60,7 @@ class ChatController extends Controller
 
         $sensitiveRes = $this->sensitiveService->has($prompt);
         if ($sensitiveRes) {
-            return response()->json([],401);
+            return response()->json([], 401);
         }
         $userMessage = ['role' => 'user', 'content' => $prompt];
         if (!$regen) {
@@ -97,7 +101,7 @@ class ChatController extends Controller
 
         $sensitiveRes = $this->sensitiveService->has($prompt);
         if ($sensitiveRes) {
-            return response()->json([],401);
+            return response()->json([], 401);
         }
 
         $regen = $request->boolean('regen');
@@ -144,6 +148,30 @@ class ChatController extends Controller
         $apiKey = $request->input('api_key');
         if ($apiKey) {
             $apiKey = base64_decode($apiKey);
+            //检查key是不是身份口令
+            $userKey = Cache::remember($apiKey, 18000, function () use ($apiKey) {
+                return UserGptKey::select(['key', 'id', 'start_at', 'end_at', 'numbers'])
+                    ->where('key', $apiKey)
+                    ->first();
+            });
+            if ($userKey) {
+                if ($userKey->numbers > 0) {// 存在次数并且可用次数大于0，优先扣减次数
+                    try {
+                        $userKey->decrement("numbers");
+                    } catch (Throwable $throwable) {
+                        \Log::error("userKey decrement numbers err:" . $throwable->getMessage());
+                        Cache::delete($apiKey);
+                        abort(401);
+                    }
+                } else {
+                    $currentAt = now();
+                    if (!$currentAt->gt($userKey->start_at) || !Carbon::parse($userKey->end_at)->gt($currentAt)) {
+                        Cache::delete($apiKey);
+                        abort(401);
+                    }
+                }
+                $apiKey = '';
+            }
         }
         header('Access-Control-Allow-Origin: *');
         header('Content-type: text/event-stream');
@@ -263,7 +291,7 @@ class ChatController extends Controller
 
         $sensitiveRes = $this->sensitiveService->has($prompt);
         if ($sensitiveRes) {
-            return response()->json([],401);
+            return response()->json([], 401);
         }
 
         $regen = $request->boolean('regen');
