@@ -8,10 +8,11 @@ export default {
     },
 
     // 发送文本消息
-    chatMessage: (message, regen) => {
+    chatMessage: (message, regen, apkKey) => {
         const formData = new FormData();
         formData.append('prompt', message);
         formData.append('regen', regen);
+        formData.append('api_key', apkKey);
         return fetch(CHAT_CONFIG.BASE_URL + '/chat', { method: 'POST', body: formData })
     },
 

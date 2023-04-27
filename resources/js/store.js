@@ -89,7 +89,7 @@ const store = createStore({
                 // 跟服务端逻辑一致，先把最后一条回复删掉
                 commit('deleteMessage');
             }
-            ChatAPI.chatMessage(message, regen).then(response => {
+            ChatAPI.chatMessage(message, regen,state.apiKey).then(response => {
                 if (response.status === 401){
                     commit('addMessage', {'role': 'assistant', 'content': '请规范你的言行,谢谢！'})
                     throw new Error('请规范你的言行,谢谢！');
@@ -125,10 +125,12 @@ const store = createStore({
                 };
                 eventSource.onerror = function (e) {
                     eventSource.close();
-                    commit('deleteMessage');
-                    const error = state.apiKey ? '请求失败，请确保你使用的是有效的API KEY' : '出错了！不用怕，加入社群，让群主搞定它！'
-                    commit('addMessage', {'role': 'assistant', 'content': error})
                     commit('toggleTyping')
+                    // eventSource.close();
+                    // commit('deleteMessage');
+                    // const error = state.apiKey ? '请求失败，请确保你使用的是有效的API KEY' : '出错了！不用怕，加入社群，让群主搞定它！'
+                    // commit('addMessage', {'role': 'assistant', 'content': error})
+                    // commit('toggleTyping')
                 };
             }).catch(error => {
                 console.log(error);

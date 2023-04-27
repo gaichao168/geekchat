@@ -84,7 +84,7 @@ class ChatController extends Controller
             Cache::set($code, $key, 300);
             $isModal = true;
         }
-        return response()->json(['chat_id' => $chatId, 'message' => $userMessage, 'isModal' => $isModal, 'code' => $code]);
+        return response()->json(['chat_id' => $chatId, 'message' => $userMessage, 'isModal' => false, 'code' => $code]);
     }
 
     /**
@@ -181,23 +181,6 @@ class ChatController extends Controller
             $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
             if ($httpCode >= 400) {
                 echo "data: [ERROR] $httpCode";
-//                if (empty($apiKey)) {
-//                    if (($httpCode == 400 || $httpCode == 401)) {
-//                        // app key 耗尽自动切换到下一个免费的 key
-//                        Artisan::call('app:update-open-ai-key');
-//                    }
-//                    if ($httpCode == 429) {
-//                        //判断是不是余额不足
-//                        $response = Http::withToken($apiKey)->timeout(15)
-//                            ->get(config('openai.base_uri') . '/dashboard/billing/credit_grants');
-//                        $amount = $response->json('total_available');
-//                        if ($amount == 0) {
-//                            // app key 耗尽自动切换到下一个免费的 key
-//                            Artisan::call('app:update-open-ai-key');
-//                        }
-//                    }
-//                }
-
             } else {
                 $respData .= $data;
                 echo $data;
